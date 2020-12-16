@@ -73,14 +73,51 @@ def change_password(request):
     return render(request,"change_password.html",{"message":""})
 @login_required(login_url="/login")
 def Dashboard(request):
+    name=str(request.user.get_full_name())
     if str(request.user)=="QAT":
         lgt(request)
         return HttpResponseRedirect("/")
-    return HttpResponse(str(request.user))
+    return render(request,"dash.html",{"name":name})
 def logout(request):
     if request.user.is_authenticated:
         lgt(request)
         return HttpResponseRedirect("/")
     else:
         return HttpResponseRedirect("/")
+@login_required(login_url="/login")
+def subject1(request):
+    name = str(request.user.get_full_name())
+    if str(request.user)=="QAT":
+        lgt(request)
+        return HttpResponseRedirect("/")
+    return render(request,"Subject1.html",{"name":name})
+@login_required(login_url="/login")
+def subject2(request):
+    name = str(request.user.get_full_name())
+    if str(request.user)=="QAT":
+        lgt(request)
+        return HttpResponseRedirect("/")
+    return render(request,"Subject2.html",{"name":name})
+@login_required(login_url="/login")
+def subject3(request):
+    name = str(request.user.get_full_name())
+    if str(request.user)=="QAT":
+        lgt(request)
+        return HttpResponseRedirect("/")
+    return render(request,"Subject3.html",{"name":name})
+@login_required(login_url="/login")
+def subject4(request):
+    name = str(request.user.get_full_name())
+    if str(request.user)=="QAT":
+        lgt(request)
+        return HttpResponseRedirect("/")
+    return render(request,"Subject4.html",{"name":name})
+@login_required(login_url="/login")
+def subject5(request):
+    name = str(request.user.get_full_name())
+    if str(request.user)=="QAT":
+        lgt(request)
+        return HttpResponseRedirect("/")
+    return render(request,"Subject5.html",{"name":name})
+
 
