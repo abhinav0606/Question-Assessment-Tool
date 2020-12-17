@@ -14,4 +14,6 @@ path("subject2/",views.subject2,name="subject2"),
 path("subject3/",views.subject3,name="subject3"),
 path("subject4/",views.subject4,name="subject4"),
 path("subject5/",views.subject5,name="subject5"),
+    path("result/",views.result,name="result"),
+    path("analysis/",views.analysis,name="analysis")
 ]

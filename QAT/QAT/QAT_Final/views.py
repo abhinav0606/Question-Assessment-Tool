@@ -122,5 +122,19 @@ def subject5(request):
         lgt(request)
         return HttpResponseRedirect("/")
     return render(request,"Subject5.html",{"name":name})
+@login_required(login_url="/login")
+def result(request):
+    name = str(request.user.get_full_name())
+    if str(request.user)=="QAT":
+        lgt(request)
+        return HttpResponseRedirect("/")
+    return render(request,"Result.html",{"name":name})
+@login_required(login_url="/login")
+def analysis(request):
+    name = str(request.user.get_full_name())
+    if str(request.user)=="QAT":
+        lgt(request)
+        return HttpResponseRedirect("/")
+    return render(request,"Analysis.html",{"name":name})
 
 
