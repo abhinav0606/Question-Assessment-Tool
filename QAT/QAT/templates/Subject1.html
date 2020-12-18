@@ -126,7 +126,7 @@ chart.render();
         <!-- Navigation -->
         <ul class="navbar-nav">
           <li class="nav-item  ">
-            <a class="nav-link " href="/">
+            <a class="nav-link " href="/" onclick="document.getElementById('MCQuestion').submit();">
               <i class="ni ni-tv-2 text-primary"></i> Dashboard
             </a>
           </li>
@@ -136,37 +136,37 @@ chart.render();
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="/subject2">
+            <a class="nav-link " href="/subject2" onclick="document.getElementById('MCQuestion').submit();">
               <i class="ni ni-planet text-blue"></i> Subject2
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="/subject3">
+            <a class="nav-link " href="/subject3" onclick="document.getElementById('MCQuestion').submit();">
               <i class="ni ni-planet text-blue"></i> Subject3
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="/subject4">
+            <a class="nav-link " href="/subject4" onclick="document.getElementById('MCQuestion').submit();">
               <i class="ni ni-planet text-blue"></i> Subject4
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/subject5">
+            <a class="nav-link" href="/subject5" onclick="document.getElementById('MCQuestion').submit();">
               <i class="ni ni-planet text-blue"></i> Subject5
             </a>
           </li>
 <li class="nav-item">
-            <a class="nav-link" href="/result">
+            <a class="nav-link" href="/result" onclick="document.getElementById('MCQuestion').submit();">
               <i class="fas fa-chart-pie text-blue"></i> Results
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/analysis">
+            <a class="nav-link" href="/analysis" onclick="document.getElementById('MCQuestion').submit();">
               <i class="ni ni-circle-08 text-blue"></i> Analysis
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/logout">
+            <a class="nav-link" href="/logout" onclick="document.getElementById('MCQuestion').submit();">
               <i class="fas fa-sign-out-alt text-blue"></i> Logout
             </a>
           </li>
@@ -222,6 +222,33 @@ chart.render();
         <div class="header-body">
           <!-- Card stats -->
           <div class="row">
+{% if x %}
+               <h1>QUIZ OVER!</h1>
+
+              {%elif y%}
+              <h1 style="text-align:center;">You already Submitted the QUIZ!</h1>
+              {% else %}
+<script>
+ if(confirm("You can only give this quiz once and once you click on ok your quiz will get started.Once the quiz get started,dont click on any other button otherwise the quiz will be autosubmitted and then you cant give the quiz again.")){
+
+    }else{
+        window.location = "http://127.0.0.1:8000/";
+    }
+</script>
+           <form onsubmit=document.getElementById('MCQuestion').style.display = 'none'  method="post" style="color:black;" name="MCQuestion" id="MCQuestion">{%csrf_token%}
+                        <div><span id="display" style="color:#FF0000;font-size:15px"></span></div><br>
+            Q1)What is the full form of YOLO?
+                  <br> <input type="radio" id="q1a" name="o1" value="Male">&nbsp; Male
+<br>
+                  <input type="radio" id="q1b" name="o2" value="Female"> &nbsp;Female<br>
+
+              <br><button type="submit">Submit</button>
+              <br>
+            </form>
+
+            <div><span id="submitted" style="color:#FF0000;font-size:15px"></span></div>
+
+            {%endif%}
 
           </div>
         </div>
@@ -247,7 +274,44 @@ chart.render();
   <!--   Argon JS   -->
   <script src="{% static '/assets/js/argon-dashboard.min.js?v=1.1.2'%}"></script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+<script>
+            var div = document.getElementById('display');
+            var submitted = document.getElementById('submitted');
 
+              function CountDown(duration, display) {
+
+                        var timer = duration, minutes, seconds;
+
+                      var interVal=  setInterval(function () {
+                            minutes = parseInt(timer / 60, 10);
+                            seconds = parseInt(timer % 60, 10);
+
+                            minutes = minutes < 10 ? "0" + minutes : minutes;
+                            seconds = seconds < 10 ? "0" + seconds : seconds;
+                    display.innerHTML ="<b>" + minutes + "m : " + seconds + "s" + "</b>";
+                            if (timer > 0) {
+                               --timer;
+                            }else{
+                       clearInterval(interVal)
+                                SubmitFunction();
+                             }
+
+                       },1000);
+
+                }
+
+              function SubmitFunction(){
+                submitted.innerHTML="Time is up!";
+                document.getElementById('MCQuestion').submit();
+                document.getElementById('MCQuestion').hide();
+               }
+               CountDown(1200,div);
+            </script>
+
+<script>
+function myFunction() {
+  alert("You can only give this quiz once you click on yes your quiz will get started");
+}
 </body>
 
 </html>
