@@ -9,6 +9,7 @@ from django.contrib.auth import authenticate
 from .models import Registration
 import os
 import json
+quiz_link="1"
 def login(request):
     registration_details=list(Registration.objects.all())
     username_list=[]
@@ -75,6 +76,7 @@ def change_password(request):
     return render(request,"change_password.html",{"message":""})
 @login_required(login_url="/login")
 def Dashboard(request):
+    global quiz_link
     name=str(request.user.get_full_name())
     if str(request.user)=="QAT":
         lgt(request)
@@ -137,6 +139,9 @@ def logout(request):
 x=""
 @login_required(login_url="/login")
 def subject1(request):
+    global quiz_link
+    username=str(request.user)
+    path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/Python.json"
     global x
     y=""
     name = str(request.user.get_full_name())
@@ -150,9 +155,11 @@ def subject1(request):
         print("Yes")
     return render(request,"Subject1.html",{"name":name,"x":x,"y":y})
 a=""
-
 @login_required(login_url="/login")
 def subject2(request):
+    global quiz_link
+    username=str(request.user)
+    path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/C++.json"
     global a
     y = ""
     name = str(request.user.get_full_name())
@@ -168,6 +175,9 @@ def subject2(request):
 b=""
 @login_required(login_url="/login")
 def subject3(request):
+    global quiz_link
+    username=str(request.user)
+    path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/Django.json"
     global b
     y = ""
     name = str(request.user.get_full_name())
@@ -183,6 +193,9 @@ def subject3(request):
 c=""
 @login_required(login_url="/login")
 def subject4(request):
+    global quiz_link
+    username=str(request.user)
+    path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/HTML.json"
     global c
     y = ""
     name = str(request.user.get_full_name())
@@ -198,6 +211,9 @@ def subject4(request):
 d=""
 @login_required(login_url="/login")
 def subject5(request):
+    global quiz_link
+    username=str(request.user)
+    path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/JavaScript.json"
     global d
     y = ""
     name = str(request.user.get_full_name())
@@ -212,6 +228,8 @@ def subject5(request):
     return render(request, "Subject5.html", {"name": name, "x": d, "y": y})
 @login_required(login_url="/login")
 def result(request):
+    global quiz_link
+    username=str(request.user)
     name = str(request.user.get_full_name())
     if str(request.user)=="QAT":
         lgt(request)
@@ -220,6 +238,8 @@ def result(request):
 # added
 @login_required(login_url="/login")
 def analysis(request):
+    global quiz_link
+    username=str(request.user)
     name = str(request.user.get_full_name())
     if str(request.user)=="QAT":
         lgt(request)
