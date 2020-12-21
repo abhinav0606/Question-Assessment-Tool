@@ -1,6 +1,3 @@
-
-# comments added
-
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
@@ -10,6 +7,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from .models import Registration
+import os
+import json
 def login(request):
     registration_details=list(Registration.objects.all())
     username_list=[]
@@ -80,6 +79,54 @@ def Dashboard(request):
     if str(request.user)=="QAT":
         lgt(request)
         return HttpResponseRedirect("/")
+    try:
+        os.mkdir("/home/abhinav/PycharmProjects/QAT/QAT/json/user/"+str(request.user))
+        d={}
+        for i in range(1,13):
+            d[str(i)]={
+                "correct":0,
+                "wrong":0,
+                "accuracy":0,
+                "submitted":False,
+                "cgpa":0
+            }
+        data=json.dumps(d,indent=6)
+        list_of_subject=["Python.json","C++.json","Django.json","HTML.json","JavaScript.json"]
+        for j in list_of_subject:
+            with open("/home/abhinav/PycharmProjects/QAT/QAT/json/user/"+str(request.user)+"/"+j,"w") as f:
+                f.write(data)
+        d2={
+            "Test_Given":0
+        }
+        data2=json.dumps(d2,indent=5)
+        with open("/home/abhinav/PycharmProjects/QAT/QAT/json/user/"+str(request.user)+"/"+"test_given.json","w") as f:
+            f.write(data2)
+        d3={
+            "overall_cgpa":[]
+        }
+        for i in range(1,13):
+            d3[str(i)]=[]
+        d3["Python"]=[]
+        d3["C++"]=[]
+        d3["Django"]=[]
+        d3["HTML"]=[]
+        d3["JavaScript"]=[]
+        print("yes")
+        data3=json.dumps(d3,indent=5)
+        with open("/home/abhinav/PycharmProjects/QAT/QAT/json/user/"+str(request.user)+"/"+"cgpa.json","w") as f:
+            f.write(data3)
+        d4={
+            "accuracy":[],
+            "Python":[],
+            "C++":[],
+            "HTML":[],
+            "JavaScript":[]
+        }
+        data4=json.dumps(d4,indent=6)
+        with open("/home/abhinav/PycharmProjects/QAT/QAT/json/user/"+str(request.user)+"/"+"accuracy.json","w") as f:
+            f.write(data4)
+    except:
+        pass
     return render(request,"dash.html",{"name":name})
 def logout(request):
     if request.user.is_authenticated:
