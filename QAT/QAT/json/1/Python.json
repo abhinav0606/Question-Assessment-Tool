@@ -1,162 +1,163 @@
 {
      "Q1": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "print type(type(int))",
+          "o1": "type 'int' ",
+          "o2": "type 'type'",
+          "o3": "Error",
+          "o4": "0",
+          "correct_answer": "q1o2"
      },
      "Q2": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "L = ['a','b','c','d'] \n print(''.join(L))",
+          "o1": "Error",
+          "o2": "None",
+          "o3": "abcd",
+          "o4": "[‘a’,’b’,’c’,’d’]",
+          "correct_answer": "q2o3"
      },
      "Q3": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What is the output of the following segment :\nchr(ord('A'))",
+          "o1": "A",
+          "o2": "B",
+          "o3": "a",
+          "o4": "Error",
+          "correct_answer": "q3o1"
      },
      "Q4": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What is the output of the following program :z = lambda x : x * y\nprint z(6)",
+          "o1": "48",
+          "o2": "64",
+          "o3": "14",
+          "o4": "None of the above",
+          "correct_answer": "q4o1"
      },
      "Q5": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What is called when a function is defined inside a class?",
+          "o1": "Module",
+          "o2": "Class",
+          "o3": "Another Function",
+          "o4": "Method",
+          "correct_answer": "q5o4"
      },
      "Q6": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following is the use of id() function in python?",
+          "o1": "Id returns the identity of the object",
+          "o2": "Every object doesn’t have a unique id",
+          "o3": "All of the mentioned",
+          "o4": "None of the mentioned",
+          "correct_answer": "q6o1"
      },
      "Q7": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What is the output of the following program :\nimport re\nsentence = 'horses are fast'\nregex = re.compile('(?P<animal>w+) (?P<verb>w+) (?P<adjective>w+)')\nmatched = re.search(regex, sentence)\nprint(matched.groupdict())",
+          "o1": "{‘animal’: ‘horses’, ‘verb’: ‘are’, ‘adjective’: ‘fast’}",
+          "o2": "(‘horses’, ‘are’, ‘fast’)",
+          "o3": "‘horses are fast’",
+          "o4": "‘are’",
+          "correct_answer": "q7o1"
      },
      "Q8": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Suppose list1 is [3, 4, 5, 20, 5, 25, 1, 3], what is list1 after list1.pop(1)?",
+          "o1": "[3, 4, 5, 20, 5, 25, 1, 3]",
+          "o2": "[1, 3, 3, 4, 5, 5, 20, 25]",
+          "o3": "[3, 5, 20, 5, 25, 1, 3]",
+          "o4": "[1, 3, 4, 5, 20, 5, 25]",
+          "correct_answer": "q8o3"
      },
      "Q9": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "time.time() returns ________",
+          "o1": "the current time",
+          "o2": "the current time in milliseconds since midnight",
+          "o3": "the current time in milliseconds since midnight, January 1, 1970",
+          "o4": "the current time in milliseconds since midnight, January 1, 1970 GMT (the Unix time)",
+          "correct_answer": "q9o4"
      },
      "Q10": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Consider the results of a medical experiment that aims to predict whether someone is going to develop myopia based on some physical measurements and heredity. In this case, the input dataset consists of the person’s medical characteristics and the target variable is binary: 1 for those who are likely to develop myopia and 0 for those who aren’t. This can be best classified as",
+          "o1": "Regression",
+          "o2": "Decision Tree",
+          "o3": "Clustering",
+          "o4": "Association Rules",
+          "correct_answer": "q10o2"
      },
      "Q11": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following commands will create a list?",
+          "o1": "list1 = list()",
+          "o2": "list1 = [] ",
+          "o3": " list1 = list([1, 2, 3])",
+          "o4": "All of the above",
+          "correct_answer": "q11o4"
      },
      "Q12": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What is the output when we execute list(“hello”)?",
+          "o1": "[‘h’, ‘e’, ‘l’, ‘l’, ‘o’] ",
+          "o2": "[‘hello’] ",
+          "o3": "[‘llo’]",
+          "o4": " [‘olleh’]",
+          "correct_answer": "q12o1"
      },
      "Q13": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What will be the output of the following Python code snippet?\n\nprint('abcdefcdghcd'.split('cd', 2))",
+          "o1": " [‘ab’, ‘ef’, ‘ghcd’] ",
+          "o2": " [‘ab’, ‘efcdghcd’] ",
+          "o3": " [‘abcdef’, ‘ghcd’] ",
+          "o4": "None of the above",
+          "correct_answer": "q13o1"
      },
      "Q14": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Suppose list1 is [2445,133,12454,123], what is max(list1)?",
+          "o1": "2445",
+          "o2": "133",
+          "o3": "12454",
+          "o4": "123",
+          "correct_answer": "q14o3"
      },
      "Q15": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Suppose list1 is [3, 5, 25, 1, 3], what is min(list1)?",
+          "o1": "3",
+          "o2": "5",
+          "o3": "25",
+          "o4": "1",
+          "correct_answer": "q15o4"
      },
      "Q16": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Suppose list1 is [1,5,9],what is sum(list1)?",
+          "o1": "1",
+          "o2": "9",
+          "o3": "15",
+          "o4": "Error",
+          "correct_answer": "q16o3"
      },
      "Q17": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "7. To shuffle the list(say list1) what function do we use?)",
+          "o1": "list1.shuffle()",
+          "o2": "shuffle(list1)",
+          "o3": "random.shuffle(list1)",
+          "o4": "random.shuffleList(list1)",
+          "correct_answer": "q17o3"
      },
      "Q18": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": " Suppose list1 is [4, 2, 2, 4, 5, 2, 1, 0], Which of the following is correct syntax for slicing operation?",
+          "o1": "print(list1[0])",
+          "o2": "print(list1[:2])",
+          "o3": "print(list1[:-2])",
+          "o4": " all of the mentioned",
+          "correct_answer": "q18o4"
      },
      "Q19": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Suppose list1 is [4, 2, 2, 4, 5, 2, 1, 0], Which of the following is correct syntax for slicing operation?",
+          "o1": "print(list1[0])",
+          "o2": "print(list1[:2])",
+          "o3": "print(list1[:-2])",
+          "o4": "all of the mentioned",
+          "correct_answer": "q19o4"
      },
      "Q20": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Suppose list1 is [2, 33, 222, 14, 25], What is list1[-1]?",
+          "o1": "Error",
+          "o2": "None",
+          "o3": "25",
+          "o4": "2",
+          "correct_answer": "q20o4"
      }
 }
+
