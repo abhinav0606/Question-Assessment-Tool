@@ -1,162 +1,162 @@
 {
      "Q1": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Abstract class is __",
+          "o1": "A class must contain all pure virtual functions",
+          "o2": "A class must contain at least one pure virtual function",
+          "o3": "A class may not contain pure virtual function.",
+          "o4": "A class must contain pure virtual function defined outside the class.",
+          "correct_answer": "q1o2"
      },
      "Q2": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What is the output of the following program?\n\n#include<iostream>\n\nusing namespace std;\nclass abc { \n\n   public: \n      int i; \n\n      abc(int i) { \n         i = i;\n      }\n};\n\nmain() { \n   abc m(5); \n   \n   cout<<m.i;\n}",
+          "o1": "5",
+          "o2": "Garbage",
+          "o3": "Error at the statement i=i;",
+          "o4": "Compile error: ‘i’ declared twice.",
+          "correct_answer": "q2o2"
      },
      "Q3": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "In the following program f() is overloaded.\n\nvoid f(int x) {\n\n}\n\nvoid f(signed x) {\n\n}\n\nmain() {\n\n}",
+          "o1": "True",
+          "o2": "False",
+          "o3": "Error",
+          "o4": "None of the Above",
+          "correct_answer": "q3o2"
      },
      "Q4": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "How can we make an class act as an interface in C++?",
+          "o1": "By only providing all the functions as virtual functions in the class.",
+          "o2": "Defining the class following with the keyword virtual",
+          "o3": "Defining the class following with the keyword interface",
+          "o4": "Defining the class following with the keyword abstract",
+          "correct_answer": "q4o1"
      },
      "Q5": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
+          "Heading": " What is the output of the following program?\n\n#include<iostream>\n\nusing namespace std;\nclass Base {\npublic:\n   void f() { \n      cout<<\"Base\\n\";\n   }\n};\nclass Derived:public Base {\npublic: \n   void f() {\n      cout<<\"Derived\\n\";\n   };\n};\nmain() { \n   Derived obj; \n   obj.Base::f();\n}",
+          "o1": "Base",
+          "o2": "Derived",
+          "o3": "Compiler Error",
           "o4": "",
-          "correct_answer": ""
+          "correct_answer": "q5o3"
      },
      "Q6": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": " With respective to streams >> (operator) is called as",
+          "o1": "Insertion operator",
+          "o2": "Extraction operator",
+          "o3": "Right shift operator",
+          "o4": "Left shift operator",
+          "correct_answer": "q6o2"
      },
      "Q7": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": " i) Exception handling technically provides multi branching.\n\nii) Exception handling can be mimicked using ‘goto’ construct.",
+          "o1": "Only (i) is true",
+          "o2": "Only (ii) is true",
+          "o3": "Both (i) & (ii) are true",
+          "o4": "Both (i) && (ii) are false",
+          "correct_answer": "q7o1"
      },
      "Q8": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What is the output of the following program?\n\n#include<iostream>\n\nusing namespace std;\nmain() { \n   float t = 2;\n\t\n\tswitch(t) {\n      case 2: cout<<”Hi”;\n\t\tdefault: cout<<\"Hello\";\n}\n}",
+          "o1": "Hi",
+          "o2": "HiHello",
+          "o3": "Hello",
+          "o4": "Error",
+          "correct_answer": "q8o4"
      },
      "Q9": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Following is the invalid inclusion of a file to the current program. Identify it",
+          "o1": "#include <file>",
+          "o2": "#include 'file'",
+          "o3": "#include < file",
+          "o4": "All of the above",
+          "correct_answer": "q9o3"
      },
      "Q10": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Does both the loops in the following programs prints the correct string length?\n\n#include<iostream>\n\nusing namespace std;\nmain() {\n   int i;\n   \n   char s[] = \"hello\";\n\n   for(i=0; s[i]; ++i);\n      cout<<i<<endl;\n\n   i=0; \n   \n   while(s[i++]);\n      cout<<i;\n}",
+          "o1": "Yes, both the loops prints the correct length",
+          "o2": "Only for loop prints the correct length",
+          "o3": "Only while loop prints the correct length",
+          "o4": "Compile error in the program.",
+          "correct_answer": "q10o2"
      },
      "Q11": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the followings is/are automatically added to every class, if we do not write our own.",
+          "o1": "Copy Constructor",
+          "o2": "Assignment Operator",
+          "o3": "A constructor without any parameter",
+          "o4": "All of the above",
+          "correct_answer": "q11o4"
      },
      "Q12": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "When a copy constructor may be called?",
+          "o1": "When an object of the class is returned by value.",
+          "o2": "When an object is constructed based on another object of the same class",
+          "o3": "When compiler generates a temporary object.",
+          "o4": "All of the above",
+          "correct_answer": "q12o4"
      },
      "Q13": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Output of following program?\n#include<iostream>\nusing namespace std;\nclass Point {\n    Point() { cout << \"Constructor called\"; }\n};\n \nint main()\n{\n   Point t1;\n   return 0;\n}",
+          "o1": "Compiler Error",
+          "o2": "Runtime Error",
+          "o3": "Constructor called",
+          "o4": "None of the Above",
+          "correct_answer": "q13o1"
      },
      "Q14": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "#include<iostream>\nusing namespace std;\nclass Point {\npublic:\n    Point() { cout << \"Constructor called\"; }\n};\n \nint main()\n{\n   Point t1, *t2;\n   return 0;\n}",
+          "o1": "Compiler Error",
+          "o2": "Constructor called\n\nConstructor called",
+          "o3": "Constructor called",
+          "o4": "None of the above",
+          "correct_answer": "q14o3"
      },
      "Q15": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Output of following program?\n#include<iostream>\nusing namespace std;\n \nclass Point {\npublic:\n    Point() { cout << \"Normal Constructor calledn\"; }\n    Point(const Point &t) { cout << \"Copy constructor calledn\"; }\n};\n \nint main()\n{\n   Point *t1, *t2;\n   t1 = new Point();\n   t2 = new Point(*t1);\n   Point t3 = *t1;\n   Point t4;\n   t4 = t3;\n   return 0;\n}",
+          "o1": "Normal Constructor called\nNormal Constructor called\n\nNormal Constructor called\n\nCopy Constructor called\n\nCopy Constructor called\n\nNormal Constructor called\n\nCopy Constructor called",
+          "o2": "Normal Constructor called\nCopy Constructor called\n\nCopy Constructor called\n\nNormal Constructor called\n\nCopy Constructor called",
+          "o3": "Normal Constructor called\nCopy Constructor called\n\nCopy Constructor called\n\nNormal Constructor called",
+          "o4": "None of the above",
+          "correct_answer": "q15o3"
      },
      "Q16": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "#include<iostream>\nusing namespace std;\n \nclass X \n{\npublic:\n    int x;\n};\n \nint main()\n{\n    X a = {10};\n    X b = a;\n    cout << a.x << \" \" << b.x;\n    return 0;\n}",
+          "o1": "Compiler Error",
+          "o2": "10 followed by Garbage Value",
+          "o3": "10 10",
+          "o4": "10 0",
+          "correct_answer": "q16o3"
      },
      "Q17": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What is the output of following program?\n#include <iostream>\nusing namespace std;\n \nclass Point\n{\n    int x, y;\npublic:\n   Point(const Point &p) { x = p.x; y = p.y; }\n   int getX() { return x; }\n   int getY() { return y; }\n};\n \nint main()\n{\n    Point p1;\n    Point p2 = p1;\n    cout << \"x = \" << p2.getX() << \" y = \" << p2.getY();\n    return 0;\n}",
+          "o1": "x = garbage value y = garbage value",
+          "o2": "x = 0 y = 0",
+          "o3": "Compiler Error",
+          "o4": "None of the Above",
+          "correct_answer": "q17o3"
      },
      "Q18": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "#include <iostream>\nusing namespace std;\n \nclass Point\n{\n    int x, y;\npublic:\n   Point(int i = 0, int j = 0) { x = i; y = j; }\n   int getX() { return x; }\n   int getY() { return y; }\n};\n \nint main()\n{\n    Point p1;\n    Point p2 = p1;\n    cout << \"x = \" << p2.getX() << \" y = \" << p2.getY();\n    return 0;\n}",
+          "o1": "Compiler Error",
+          "o2": "x = 0 y = 0",
+          "o3": "x = garbage value y = garbage value",
+          "o4": "None of the Above",
+          "correct_answer": "q18o2"
      },
      "Q19": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Predict the output of following program.\n#include<iostream>\n#include<stdlib.h>\nusing namespace std;\n \nclass Test\n{\npublic:\n   Test()\n   { cout << \"Constructor called\"; }\n};\n \nint main()\n{\n    Test *t = (Test *) malloc(sizeof(Test));\n    return 0;\n}",
+          "o1": "Constructor called",
+          "o2": "Empty",
+          "o3": "Compiler Error",
+          "o4": "Runtime error",
+          "correct_answer": "q19o2"
      },
      "Q20": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "#include <iostream>\nusing namespace std;\n \nclass Test\n{\npublic:\n      Test() { cout << \"Hello from Test() \"; }\n} a;\n \nint main()\n{\n    cout << \"Main Started \";\n    return 0;\n}",
+          "o1": "Main Started",
+          "o2": "Main Started Hello from Test()",
+          "o3": "Hello from Test() Main Started",
+          "o4": "Compiler Error: Global objects are not allowed",
+          "correct_answer": "q20o3"
      }
 }

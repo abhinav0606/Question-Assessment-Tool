@@ -78,6 +78,7 @@ def change_password(request):
 @login_required(login_url="/login")
 def Dashboard(request):
     global quiz_link
+    username=str(request.user)
     name=str(request.user.get_full_name())
     if str(request.user)=="QAT":
         lgt(request)
@@ -131,7 +132,41 @@ def Dashboard(request):
             f.write(data4)
     except:
         pass
-    return render(request,"dash.html",{"name":name})
+    # path to the various files
+    cgpa_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/cgpa.json"
+    accuracy_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/accuracy.json"
+    test_given=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/test_given.json"
+    # json data
+    cgpa_json=open(cgpa_path)
+    cgpa_data_json=json.load(cgpa_json)
+    accuracy_json=open(accuracy_path)
+    accuracy_json_data=json.load(accuracy_json)
+    test_json=open(test_given)
+    test_json_data=json.load(test_json)
+    cgpa=""
+    cgpa_highest=""
+    accuracy=""
+    test=""
+    if cgpa_data_json["overall_cgpa"]==[]:
+        cgpa=0
+        cgpa_highest=0
+    else:
+        cgpa=sum(cgpa_data_json["overall_cgpa"])/len(cgpa_data_json["overall_cgpa"])
+        cgpa_highest=max(cgpa_data_json["overall_cgpa"])
+    if accuracy_json_data["accuracy"]==[]:
+        accuracy=0
+    else:
+        accuracy=sum(accuracy_json_data["accuracy"])/len(accuracy_json_data["accuracy"])
+    test=test_json_data["Test_Given"]
+    listy=[]
+    if cgpa_data_json["overall_cgpa"]==[]:
+        for i in range(12):
+            listy.append("{"+f' y: 0,label:"{str(i+1)}"'+"},")
+    else:
+        for i in range(len(cgpa_data_json["overall_cgpa"])):
+            listy.append("{"+f'y: {str(cgpa_data_json["overall_cgpa"][i])},label:"{str(i+1)}"'+"},")
+    print(listy)
+    return render(request,"dash.html",{"name":name,"cg":cgpa,"cgh":cgpa_highest,"accuracy":accuracy,"test":test,"l":listy})
 def logout(request):
     if request.user.is_authenticated:
         lgt(request)
@@ -207,23 +242,76 @@ def subject1(request):
             f.write(cgpa_writer)
         y="True"
     return render(request,"Subject1.html",{"name":name,"y":y,"quiz":quiz_data_json})
-a=""
+
 @login_required(login_url="/login")
 def subject2(request):
     global quiz_link
     username=str(request.user)
+    # commenting for the path(All the paths will be here)
     path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/C++.json"
-    global a
-    y = ""
+    quiz_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/{quiz_link}/C++.json"
+    cgpa_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/cgpa.json"
+    accuracy_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/accuracy.json"
+    test_given_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/test_given.json"
+    # Processing the paths here
+    quiz_data=open(quiz_path)
+    quiz_data_json=json.load(quiz_data)
+    subject_data=open(path)
+    subject_data_json=json.load(subject_data)
+    subject_dummy=subject_data_json
+    cgpa_json=open(cgpa_path)
+    cgpa_json_data=json.load(cgpa_json)
+    cgpa_dummy=cgpa_json_data
+    accuracy_json=open(accuracy_path)
+    accuracy_json_data=json.load(accuracy_json)
+    accuracy_dummy=accuracy_json_data
+    test_given_json=open(test_given_path)
+    test_given_json_data=json.load(test_given_json)
+    test_given_dummy=test_given_json_data
+    y=""
+    if subject_data_json[quiz_link]["submitted"]==True:
+        y="True"
     name = str(request.user.get_full_name())
-    if str(request.user) == "QAT":
+    if str(request.user)=="QAT":
         lgt(request)
         return HttpResponseRedirect("/")
-    if request.method == "POST":
-        o1 = request.POST.get("o1", "default")
-        o2 = request.POST.get("o2", "default")
-        a = "True"
-    return render(request, "Subject2.html", {"name": name, "x": a, "y": y})
+    if request.method=="POST" and y=="":
+        print("Yes")
+        count=0
+        for i in range(1,21):
+            option_selected=request.POST.get(f"Q{str(i)}","")
+            if option_selected.lower()==quiz_data_json[f"Q{str(i)}"]["correct_answer"]:
+                count=count+1
+            else:
+                pass
+        subject_dummy[quiz_link]["correct"]=count
+        subject_dummy[quiz_link]["wrong"]=20-count
+        subject_dummy[quiz_link]["accuracy"]=(count/20)*100
+        subject_dummy[quiz_link]["submitted"]=True
+        subject_dummy[quiz_link]["cgpa"]=(count/20)*10
+        accuracy_dummy["C++"].append((count/20)*100)
+        accuracy_json_data["accuracy"].append((count/20)*100)
+        test_given_dummy["Test_Given"]=test_given_dummy["Test_Given"]+1
+        l_cgpa=cgpa_dummy[quiz_link]
+        l_cgpa.append((count/20)*10)
+        cgpa_dummy[quiz_link]=l_cgpa
+        if len(l_cgpa)==5:
+            cgpa_dummy["overall_cgpa"].append(sum(l_cgpa)/5)
+        cgpa_dummy["C++"].append((count/20)*10)
+        cgpa_writer=json.dumps(cgpa_dummy,indent=6)
+        subject_writer=json.dumps(subject_dummy,indent=6)
+        accuracy_writer=json.dumps(accuracy_dummy,indent=6)
+        test_given_writer=json.dumps(test_given_dummy,indent=4)
+        with open(test_given_path,"w") as f:
+            f.write(test_given_writer)
+        with open(accuracy_path,"w") as f:
+            f.write(accuracy_writer)
+        with open(path,"w") as f:
+            f.write(subject_writer)
+        with open(cgpa_path,"w") as f:
+            f.write(cgpa_writer)
+        y="True"
+    return render(request,"Subject2.html",{"name":name,"y":y,"quiz":quiz_data_json})
 b=""
 @login_required(login_url="/login")
 def subject3(request):

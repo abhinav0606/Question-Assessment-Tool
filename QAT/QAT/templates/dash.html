@@ -18,10 +18,10 @@
 
   <link href="{% static '/assets/css/argon-dashboard.css' %}" rel="stylesheet" />
 </head>
-<script>
+{% autoescape off %}
+<script type="text/javascript">
 
 window.onload = function () {
-
 var chart = new CanvasJS.Chart("chartContainer", {
 	animationEnabled: true,
 	theme: "light10",
@@ -31,21 +31,25 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	data: [{        
 		type: "line",
       	indexLabelFontSize: 16,
-		dataPoints: [
+		dataPoints:[
 
-			{ y: 8.2,label:"1"},
-			{ y: 8.3,label:"2"},
-			{ y: 8.6,label:"3"},
-			{ y: 8.5,label:"4" },
-			{ y: 8.4 ,label:"5"},
-			{ y: 8.24,label:"6" },
-			{ y: 8.5 ,label:"7"},
-			{ y: 8.54 ,label:"8"},
-			{ y: 7.9 ,label:"9"},
-			{ y: 8.0 ,label:"10"},
-			{ y: 8.10,label:"11" },
-			{ y: 8.12,label:"12" }
-		]
+<!--			{ y: 8.2,label:"1"},-->
+<!--			{ y: 8.3,label:"2"},-->
+<!--			{ y: 8.6,label:"3"},-->
+<!--			{ y: 8.5,label:"4" },-->
+<!--			{ y: 8.4 ,label:"5"},-->
+<!--			{ y: 8.24,label:"6" },-->
+<!--			{ y: 8.5 ,label:"7"},-->
+<!--			{ y: 8.54 ,label:"8"},-->
+<!--			{ y: 7.9 ,label:"9"},-->
+<!--			{ y: 8.0 ,label:"10"},-->
+<!--			{ y: 8.10,label:"11" },-->
+<!--			{ y: 8.12,label:"12" }-->
+{%for i in l%}
+{{i}}
+{% endfor %}
+]
+
 	}]
 });
 chart.render();
@@ -54,6 +58,7 @@ chart.render();
 
 
 </script>
+{% endautoescape %}
 <body class="">
   <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
     <div class="container-fluid">
@@ -228,7 +233,7 @@ chart.render();
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Test Given</h5>
-                      <span class="h2 font-weight-bold mb-0">15</span>
+                      <span class="h2 font-weight-bold mb-0">{{test}}</span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
@@ -245,7 +250,7 @@ chart.render();
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Avergae GPA</h5>
-                      <span class="h2 font-weight-bold mb-0">8.24</span>
+                      <span class="h2 font-weight-bold mb-0">{{cg}}</span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -262,7 +267,7 @@ chart.render();
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Highest GPA</h5>
-                      <span class="h2 font-weight-bold mb-0">8.8</span>
+                      <span class="h2 font-weight-bold mb-0">{{cgh}}</span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -279,7 +284,7 @@ chart.render();
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Accuracy</h5>
-                      <span class="h2 font-weight-bold mb-0">95%</span>
+                      <span class="h2 font-weight-bold mb-0">{{accuracy}}%</span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-info text-white rounded-circle shadow">
