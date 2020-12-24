@@ -1,162 +1,162 @@
 {
      "Q1": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": " What happens when url.py file is edited while the development server is still running?",
+          "o1": "Development server terminates.",
+          "o2": "The development server automatically restarts.",
+          "o3": "The development server does nothing.",
+          "o4": "The web page is automatically reloaded.",
+          "correct_answer": "q1o2"
      },
      "Q2": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which setting contains the parameter of main-urls file?",
+          "o1": "ROOT_URLCONF",
+          "o2": "MAIN_URLCONF",
+          "o3": "STATIC_URL",
+          "o4": "MEDIA_URL",
+          "correct_answer": "q2o1"
      },
      "Q3": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Django is based on which framework?",
+          "o1": "MVC",
+          "o2": "MVVM",
+          "o3": "MVT or MTV (Model-View-Template)",
+          "o4": "None of the above",
+          "correct_answer": "q3o3"
      },
      "Q4": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What is the purpose of __init__.py in project directories?",
+          "o1": "It allows Python to recognise the folder as package.",
+          "o2": "It is useless and can be deleted.",
+          "o3": "It is used to initialise any empty values.",
+          "o4": "None of the Above",
+          "correct_answer": "q4o1"
      },
      "Q5": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which method is used instead of path() in urls.py to pass in regular expressions as routes?",
+          "o1": "static()",
+          "o2": "re_path()",
+          "o3": "include()",
+          "o4": "url()",
+          "correct_answer": "q5o4"
      },
      "Q6": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What is the use of os.path.dirname(__file__) in this method?",
+          "o1": "It is the default value and points to Django settings.py.",
+          "o2": "It is passing some value defined before.",
+          "o3": "It is used to pass the value of current file in which this line is written. ",
+          "o4": "None of the above",
+          "correct_answer": "q6o3"
      },
      "Q7": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What does happen when you execute this command in Terminal/ PowerShell?",
+          "o1": "It will open interactive interpreter in command line with settings.py file imported.",
+          "o2": "It will run manage.py in command line.",
+          "o3": "All the above mentioned",
+          "o4": "None of the Above",
+          "correct_answer": "q7o1"
      },
      "Q8": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What is the value of DEBUG when website is online/ or deployed?",
+          "o1": "False",
+          "o2": "True",
+          "o3": "None",
+          "o4": "Null",
+          "correct_answer": "q8o1"
      },
      "Q9": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What does {{ name }} this mean in Django Templates?",
+          "o1": "It will be displayed as name in HTML.",
+          "o2": "The name will be replaced with values of Python variable.",
+          "o3": "{{ name }} will be the output.",
+          "o4": "None of the above",
+          "correct_answer": "q9o2"
      },
      "Q10": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Check in-valid template tag.",
+          "o1": "{% If %}/ {% else %}",
+          "o2": "{% ifequal %} ",
+          "o3": "{% while %} - wrong",
+          "o4": "{% for key in dictionary %}",
+          "correct_answer": "q10o3"
      },
      "Q11": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What does {{ forloop.counter }} prints?",
+          "o1": "It will not print if for loop variable is not defined.",
+          "o2": "It will count the number of times loop ran.",
+          "o3": "It prints the integer value of no. of times the loop executed.",
+          "o4": "None of the above",
+          "correct_answer": "q11o3"
      },
      "Q12": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "This template {# #} is used for?",
+          "o1": "It is comment in template language.",
+          "o2": "It is used for business logic. ",
+          "o3": "It will raise an exception.",
+          "o4": "None of the above",
+          "correct_answer": "q12o1"
      },
      "Q13": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What is a Django App?",
+          "o1": "An app is a functionality, including models and views, that lives together in a single Python package.",
+          "o2": "Django app is a python package with its own components.",
+          "o3": "Django app is an extended package with base package is Django.",
+          "o4": "All of the Above",
+          "correct_answer": "q13o4"
      },
      "Q14": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What are Migrations in Django?",
+          "o1": "Migrations are files where Django stores changes to your models.",
+          "o2": "They are files saved in migrations directory.",
+          "o3": "They are created when you run makemigrations command.",
+          "o4": "All of the above",
+          "correct_answer": "q14o4"
      },
      "Q15": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What is the purpose of __str__() method?",
+          "o1": "It displays a human-readable form of object. ",
+          "o2": "It will display the post_heading when __str__() is called.",
+          "o3": "It will return the name of the post when Post object is printed.",
+          "o4": "None of the above",
+          "correct_answer": "q15o3"
      },
      "Q16": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What is Post.objects.all() is used for?",
+          "o1": "It is used to bring all the objects stored in Post table.",
+          "o2": "It is used to create a new Post object m.",
+          "o3": "Post object will bring objects from database with SQL Query: Select *.",
+          "o4": "None of the above",
+          "correct_answer": "q16o1"
      },
      "Q17": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What does admin.autodiscover() do?",
+          "o1": "It will look through INSTALLED_APPS when admin is requested.",
+          "o2": "If the installed apps have admin.py it will execute them.",
+          "o3": "Both a and b ",
+          "o4": "None of the above ",
+          "correct_answer": "q17o3"
      },
      "Q18": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What kind of non-HTML outputs can Django generate?",
+          "o1": ".epub Files",
+          "o2": "Sitemaps (an XML format developed by google)",
+          "o3": "Exe files ",
+          "o4": "Python files",
+          "correct_answer": "q18o2"
      },
      "Q19": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What are request.GET and request.POST objects?",
+          "o1": "Python Dictionaries ",
+          "o2": "Python Lists ",
+          "o3": "Python Dictionary-Like objects ",
+          "o4": "None of the above",
+          "correct_answer": "q19o3"
      },
      "Q20": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which code will give us a text area form field?",
+          "o1": "Field_name = forms.TextAreaField() ",
+          "o2": "Field_name = forms.CharField(widgets = forms.Textarea)",
+          "o3": "Field_name = forms.TextField(widgets = forms.Textarea) ",
+          "o4": "None of the above",
+          "correct_answer": "q20o2"
      }
 }

@@ -194,322 +194,70 @@ table, th, td {
           <!-- Card stats -->
           <div class="row">
 
-<table style="width:100%;color:white">
+<table style="width:100%;color:black">
   <h1 style="text-align:center;color:white">CGPA-QUIZ WISE</h1>
-  <tr >
-    <th>January</th>
-    <th>--</th>
+                          {% for i,j in cgpa.items %}
+    <tr style="text-align:center;color:black">
+    <th>{{i}}</th>
+    <th>{{j}}</th>
   </tr>
-    <tr >
-    <th>February</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>March</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>April</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>May</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>June</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>July</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>August</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>September</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>October</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>November</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>December</th>
-    <th>--</th>
-  </tr>
+  {% endfor %}
 </table>
 <br><br>
 
             <table style="width:100%;color:white">
 
   <h1 style="text-align:center;color:white">Python-Score</h1>
-  <tr >
-    <th>January</th>
-    <th>--</th>
+                            {% for i,j in python.items %}
+    <tr style="text-align:center;color:black">
+    <th>{{i}}</th>
+    <th>{{j}}</th>
   </tr>
-    <tr >
-    <th>February</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>March</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>April</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>May</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>June</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>July</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>August</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>September</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>October</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>November</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>December</th>
-    <th>--</th>
-  </tr>
+              {% endfor %}
 </table>
             <table style="width:100%;color:white">
 
   <h1 style="text-align:center;color:white">C++-Score</h1>
-  <tr >
-    <th>January</th>
-    <th>--</th>
+                            {% for i,j in c.items %}
+    <tr style="text-align:center;color:black">
+    <th>{{i}}</th>
+    <th>{{j}}</th>
   </tr>
-    <tr >
-    <th>February</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>March</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>April</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>May</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>June</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>July</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>August</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>September</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>October</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>November</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>December</th>
-    <th>--</th>
-  </tr>
+              {% endfor %}
 </table>
 
                         <table style="width:100%;color:white">
               <br>
   <h1 style="text-align:center;color:white">Django-Score</h1>
-  <tr >
-    <th>January</th>
-    <th>--</th>
+                              {% for i,j in django.items %}
+    <tr style="text-align:center;color:black">
+    <th>{{i}}</th>
+    <th>{{j}}</th>
   </tr>
-    <tr >
-    <th>February</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>March</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>April</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>May</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>June</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>July</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>August</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>September</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>October</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>November</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>December</th>
-    <th>--</th>
-  </tr>
+              {% endfor %}
 </table>
 
 
                         <table style="width:100%;color:white">
               <br>
   <h1 style="text-align:center;color:white">HTML-Score</h1>
-  <tr >
-    <th>January</th>
-    <th>--</th>
+                              {% for i,j in html.items %}
+    <tr style="text-align:center;color:black">
+    <th>{{i}}</th>
+    <th>{{j}}</th>
   </tr>
-    <tr >
-    <th>February</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>March</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>April</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>May</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>June</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>July</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>August</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>September</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>October</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>November</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>December</th>
-    <th>--</th>
-  </tr>
+              {% endfor %}
 </table>
 
                         <table style="width:100%;color:white">
               <br>
   <h1 style="text-align:center;color:white">JavaScript-Score</h1>
-  <tr >
-    <th>January</th>
-    <th>--</th>
+                              {% for i,j in js.items %}
+    <tr style="text-align:center;color:black">
+    <th>{{i}}</th>
+    <th>{{j}}</th>
   </tr>
-    <tr >
-    <th>February</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>March</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>April</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>May</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>June</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>July</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>August</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>September</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>October</th>
-    <th>--</th>
-  </tr>
-    <tr >
-    <th>November</th>
-    <th>--</th>
-  </tr>
-    <tr>
-    <th>December</th>
-    <th>--</th>
-  </tr>
+              {% endfor %}
 </table>
           </div>
         </div>

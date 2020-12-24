@@ -238,11 +238,14 @@ chart.render();
 </script>
            <form method="post" style="color:black;" name="MCQuestion" id="MCQuestion">{%csrf_token%}
                         <div><span id="display" style="color:#FF0000;font-size:15px"></span></div><br>
-            Q1)What is the full form of YOLO
-                  <br> <input type="radio" id="q1a" name="o1" value="Male">Male
-<br>
-                  <input type="radio" id="q1b" name="o2" value="Female">Female<br>
+           {% for i,j in quiz.items %}
+              {{i}}){{j.Heading|linebreaksbr}}<br>
+              <br><div> <input type="radio" id="{{i}}o1" name="{{i}}" value="{{i}}o1">&nbsp;<label for="{{i}}o1">{{j.o1|linebreaksbr}}</label></div>
 
+              <div><input type="radio" id="{{i}}o2" name="{{i}}" value="{{i}}o2">&nbsp;<label for="{{i}}o2">{{j.o2|linebreaksbr}}</label></div>
+              <div><input type="radio" id="{{i}}o3" name="{{i}}" value="{{i}}o3">&nbsp;<label for="{{i}}o3">{{j.o3|linebreaksbr}}</label></div>
+              <div><input type="radio" id="{{i}}o4" name="{{i}}" value="{{i}}o4">&nbsp;<label for="{{i}}o4">{{j.o4|linebreaksbr}}</label></div><br><br><br>
+                {% endfor %}
               <br><button type="submit">Submit</button>
               <br>
             </form>
