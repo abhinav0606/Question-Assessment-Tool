@@ -10,7 +10,7 @@ from .models import Registration
 import os
 import json
 import pprint
-quiz_link="2"
+quiz_link="1"
 def login(request):
     registration_details=list(Registration.objects.all())
     username_list=[]
