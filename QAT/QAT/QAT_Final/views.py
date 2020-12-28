@@ -9,7 +9,6 @@ from django.contrib.auth import authenticate
 from .models import Registration
 import os
 import json
-import pprint
 quiz_link="1"
 def login(request):
     registration_details=list(Registration.objects.all())
@@ -130,6 +129,15 @@ def Dashboard(request):
         data4=json.dumps(d4,indent=6)
         with open("/home/abhinav/PycharmProjects/QAT/QAT/json/user/"+str(request.user)+"/"+"accuracy.json","w") as f:
             f.write(data4)
+
+
+    #     creating the rank list
+        rank_dict=json.load(open("/home/abhinav/PycharmProjects/QAT/QAT/json/rank_list.json"))
+        rank_dictionary=rank_dict
+        rank_dictionary[username]=[]
+        writter=json.dumps(rank_dictionary,indent=5)
+        with open("/home/abhinav/PycharmProjects/QAT/QAT/json/rank_list.json","w") as f:
+            f.write(writter)
     except:
         pass
     # path to the various files
@@ -183,6 +191,9 @@ def subject1(request):
     cgpa_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/cgpa.json"
     accuracy_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/accuracy.json"
     test_given_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/test_given.json"
+    rank_path="/home/abhinav/PycharmProjects/QAT/QAT/json/rank_list.json"
+    rank_data=json.load(open(rank_path))
+    rank_dict=rank_data
     # Processing the paths here
     quiz_data=open(quiz_path)
     quiz_data_json=json.load(quiz_data)
@@ -224,6 +235,8 @@ def subject1(request):
         test_given_dummy["Test_Given"]=test_given_dummy["Test_Given"]+1
         l_cgpa=cgpa_dummy[quiz_link]
         l_cgpa.append((count/20)*10)
+        rank_dict[username].append((count/20)*10)
+        rank_writter=json.dumps(rank_dict,indent=5)
         cgpa_dummy[quiz_link]=l_cgpa
         cgpa_dummy["overall_cgpa"][int(quiz_link)-1]=(sum(l_cgpa)/5)
         cgpa_dummy["Python"].append((count/20)*10)
@@ -239,6 +252,8 @@ def subject1(request):
             f.write(subject_writer)
         with open(cgpa_path,"w") as f:
             f.write(cgpa_writer)
+        with open(rank_path,"w") as f:
+            f.write(rank_writter)
         y="True"
     return render(request,"Subject1.html",{"name":name,"y":y,"quiz":quiz_data_json})
 
@@ -252,6 +267,9 @@ def subject2(request):
     cgpa_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/cgpa.json"
     accuracy_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/accuracy.json"
     test_given_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/test_given.json"
+    rank_path="/home/abhinav/PycharmProjects/QAT/QAT/json/rank_list.json"
+    rank_data=json.load(open(rank_path))
+    rank_dict=rank_data
     # Processing the paths here
     quiz_data=open(quiz_path)
     quiz_data_json=json.load(quiz_data)
@@ -291,6 +309,8 @@ def subject2(request):
         accuracy_dummy["C++"].append((count/20)*100)
         accuracy_json_data["accuracy"].append((count/20)*100)
         test_given_dummy["Test_Given"]=test_given_dummy["Test_Given"]+1
+        rank_dict[username].append((count / 20) * 10)
+        rank_writter = json.dumps(rank_dict, indent=5)
         l_cgpa=cgpa_dummy[quiz_link]
         l_cgpa.append((count/20)*10)
         cgpa_dummy[quiz_link]=l_cgpa
@@ -308,6 +328,8 @@ def subject2(request):
             f.write(subject_writer)
         with open(cgpa_path,"w") as f:
             f.write(cgpa_writer)
+        with open(rank_path,"w") as f:
+            f.write(rank_writter)
         y="True"
     return render(request,"Subject2.html",{"name":name,"y":y,"quiz":quiz_data_json})
 
@@ -321,6 +343,9 @@ def subject3(request):
     cgpa_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/cgpa.json"
     accuracy_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/accuracy.json"
     test_given_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/test_given.json"
+    rank_path="/home/abhinav/PycharmProjects/QAT/QAT/json/rank_list.json"
+    rank_data=json.load(open(rank_path))
+    rank_dict=rank_data
     # Processing the paths here
     quiz_data = open(quiz_path)
     quiz_data_json = json.load(quiz_data)
@@ -362,6 +387,8 @@ def subject3(request):
         test_given_dummy["Test_Given"] = test_given_dummy["Test_Given"] + 1
         l_cgpa = cgpa_dummy[quiz_link]
         l_cgpa.append((count / 20) * 10)
+        rank_dict[username].append((count / 20) * 10)
+        rank_writter = json.dumps(rank_dict, indent=5)
         cgpa_dummy[quiz_link] = l_cgpa
         cgpa_dummy["overall_cgpa"][int(quiz_link)-1]=(sum(l_cgpa)/5)
         cgpa_dummy["Django"].append((count / 20) * 10)
@@ -377,6 +404,8 @@ def subject3(request):
             f.write(subject_writer)
         with open(cgpa_path, "w") as f:
             f.write(cgpa_writer)
+        with open(rank_path,"w") as f:
+            f.write(rank_writter)
         y = "True"
     return render(request, "Subject3.html", {"name": name, "y": y, "quiz": quiz_data_json})
 c=""
@@ -390,6 +419,9 @@ def subject4(request):
     cgpa_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/cgpa.json"
     accuracy_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/accuracy.json"
     test_given_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/test_given.json"
+    rank_path="/home/abhinav/PycharmProjects/QAT/QAT/json/rank_list.json"
+    rank_data=json.load(open(rank_path))
+    rank_dict=rank_data
     # Processing the paths here
     quiz_data = open(quiz_path)
     quiz_data_json = json.load(quiz_data)
@@ -431,6 +463,8 @@ def subject4(request):
         test_given_dummy["Test_Given"] = test_given_dummy["Test_Given"] + 1
         l_cgpa = cgpa_dummy[quiz_link]
         l_cgpa.append((count / 20) * 10)
+        rank_dict[username].append((count / 20) * 10)
+        rank_writter = json.dumps(rank_dict, indent=5)
         cgpa_dummy[quiz_link] = l_cgpa
         cgpa_dummy["overall_cgpa"][int(quiz_link) - 1] = (sum(l_cgpa) / 5)
         cgpa_dummy["HTML"].append((count / 20) * 10)
@@ -446,6 +480,8 @@ def subject4(request):
             f.write(subject_writer)
         with open(cgpa_path, "w") as f:
             f.write(cgpa_writer)
+        with open(rank_path,"w") as f:
+            f.write(rank_writter)
         y = "True"
     return render(request, "Subject4.html", {"name": name, "y": y, "quiz": quiz_data_json})
 d=""
@@ -459,6 +495,9 @@ def subject5(request):
     cgpa_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/cgpa.json"
     accuracy_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/accuracy.json"
     test_given_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/test_given.json"
+    rank_path="/home/abhinav/PycharmProjects/QAT/QAT/json/rank_list.json"
+    rank_data=json.load(open(rank_path))
+    rank_dict=rank_data
     # Processing the paths here
     quiz_data = open(quiz_path)
     quiz_data_json = json.load(quiz_data)
@@ -498,6 +537,8 @@ def subject5(request):
         accuracy_dummy["JavaScript"].append((count / 20) * 100)
         accuracy_json_data["accuracy"].append((count / 20) * 100)
         test_given_dummy["Test_Given"] = test_given_dummy["Test_Given"] + 1
+        rank_dict[username].append((count / 20) * 10)
+        rank_writter = json.dumps(rank_dict, indent=5)
         l_cgpa = cgpa_dummy[quiz_link]
         l_cgpa.append((count / 20) * 10)
         cgpa_dummy[quiz_link] = l_cgpa
@@ -515,6 +556,8 @@ def subject5(request):
             f.write(subject_writer)
         with open(cgpa_path, "w") as f:
             f.write(cgpa_writer)
+        with open(rank_path,"w") as f:
+            f.write(rank_writter)
         y = "True"
     return render(request, "Subject5.html", {"name": name, "y": y, "quiz": quiz_data_json})
 @login_required(login_url="/login")
@@ -578,6 +621,105 @@ def analysis(request):
     if str(request.user)=="QAT":
         lgt(request)
         return HttpResponseRedirect("/")
-    return render(request,"Analysis.html",{"name":name})
+    # path to files
+    cgpa_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/cgpa.json"
+    python_score=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/Python.json"
+    c_score=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/C++.json"
+    django_score=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/Django.json"
+    html_score=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/HTML.json"
+    js_score=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/JavaScript.json"
+    accuracy_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/accuracy.json"
+    # loading the data
+    python_data=json.load(open(python_score))
+    c_data=json.load(open(c_score))
+    django_data=json.load(open(django_score))
+    html_data=json.load(open(html_score))
+    js_data=json.load(open(js_score))
+    cgpa_data=json.load(open(cgpa_path))
+    accuracy_data=json.load(open(accuracy_path))
+    python_cgpa=0
+    c_cgpa=0
+    django_cgpa=0
+    html_cgpa=0
+    js_cgpa=0
+    if cgpa_data["Python"]==[]:
+        python_cgpa=0
+    else:
+        python_cgpa=sum(cgpa_data["Python"])/(len(cgpa_data["Python"]))
+    if cgpa_data["C++"] == []:
+        c_cgpa = 0
+    else:
+        c_cgpa = sum(cgpa_data["C++"]) / (len(cgpa_data["C++"]))
+    if cgpa_data["Django"] == []:
+        django_cgpa = 0
+    else:
+        django_cgpa = sum(cgpa_data["Django"]) / (len(cgpa_data["Django"]))
+    if cgpa_data["HTML"] == []:
+        html_cgpa = 0
+    else:
+        html_cgpa = sum(cgpa_data["HTML"]) / (len(cgpa_data["HTML"]))
+    if cgpa_data["JavaScript"] == []:
+        js_cgpa = 0
+    else:
+        js_cgpa = sum(cgpa_data["JavaScript"]) / (len(cgpa_data["JavaScript"]))
+    python_list=[]
+    c_list=[]
+    django_list=[]
+    html_list=[]
+    js_list=[]
+    for i in range(1,13):
+        python_list.append("{"+f'y: {str(python_data[str(i)]["correct"])},label:"{str(i)}"'+"},")
+        c_list.append("{ y:" + f'{c_data[str(i)]["correct"]},label:"{str(i)}"' + "},")
+        django_list.append("{ y:" + f'{django_data[str(i)]["correct"]},label:"{str(i)}"' + "},")
+        html_list.append("{ y:" + f'{html_data[str(i)]["correct"]},label:"{str(i)}"' + "},")
+        js_list.append("{ y:" + f'{js_data[str(i)]["correct"]},label:"{str(i)}"' + "},")
+    py_acc=0
+    c_acc=0
+    django_acc=0
+    html_acc=0
+    js_acc=0
+    if len(accuracy_data["Python"])==[]:
+        py_acc=0
+    else:
+        try:
+            py_acc=sum(accuracy_data["Python"])/(len(accuracy_data["Python"]))
+        except:
+            py_acc=0
+    if len(accuracy_data["C++"]) == []:
+        c_acc=0
+    else:
+        try:
+            c_acc = sum(accuracy_data["C++"]) / (len(accuracy_data["C++"]))
+        except:
+            c_acc=0
+    if len(accuracy_data["Django"])==[]:
+        django_acc=0
+    else:
+        try:
+            django_acc = sum(accuracy_data["Django"]) / (len(accuracy_data["Django"]))
+        except:
+            django_acc=0
+    if len(accuracy_data["HTML"]) == []:
+        html_acc=0
+    else:
+        try:
+            html_acc = sum(accuracy_data["HTML"]) / (len(accuracy_data["HTML"]))
+        except:
+            html_acc=0
+    if len(accuracy_data["JavaScript"]) == []:
+        js_acc=0
+    else:
+        try:
+            js_acc = sum(accuracy_data["JavaScript"]) / (len(accuracy_data["JavaScript"]))
+        except:
+            js_acc=0
+    rank_path="/home/abhinav/PycharmProjects/QAT/QAT/json/rank_list.json"
+    rank_data=json.load(open(rank_path))
+    l=sorted(rank_data,key=lambda x:sum(rank_data[x]),reverse=True)
+    index=l.index(username)+1
+    return render(request,"Analysis.html",{"name":name,"python_gp":python_cgpa,"c_gp":c_cgpa,"django_gp":django_cgpa,"html_gp":html_cgpa,"js_gp":js_cgpa,"python_list":python_list,"c_list":c_list,
+                                           "django_list":django_list,"html_list":html_list,"js_list":js_list,
+                                           "py_acc":py_acc,"c_acc":c_acc,"django_acc":django_acc,"html_acc":html_acc,"js_acc":js_acc,"index":index
+                                           })
 
 

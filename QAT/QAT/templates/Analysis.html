@@ -19,6 +19,8 @@
   <link href="{% static '/assets/css/argon-dashboard.css'%}" rel="stylesheet" />
 </head>
 <!--line chart subject 1-->
+
+{% autoescape off %}
 <script>
 
 window.onload = function () {
@@ -37,11 +39,11 @@ window.onload = function () {
 			showInLegend: false,
 			legendText: "{indexLabel}",
 			dataPoints: [
-				{ y: 100, indexLabel: "Subject1 100%" },
-				{ y: 97, indexLabel: "Subject2 97%" },
-				{ y: 89, indexLabel: "Subject3 89%" },
-				{ y: 90, indexLabel: "Subject4 90%"},
-				{ y: 91, indexLabel: "Subject5 91%" }
+				{ y: {{py_acc}}, indexLabel: "Python {{py_acc}}%" },
+				{ y: {{c_acc}}, indexLabel: "C++ {{c_acc}}%" },
+				{ y: {{django_acc}}, indexLabel: "Django {{django_acc}}%" },
+				{ y: {{html_acc}}, indexLabel: "HTML {{html_acc}}%"},
+				{ y: {{js_acc}}, indexLabel: "JavaScript {{js_acc}}%" }
 			]
 		}
 		]
@@ -60,18 +62,21 @@ window.onload = function () {
       	indexLabelFontSize: 16,
 		dataPoints: [
 
-			{ y: 18,label:"1"},
-			{ y: 21,label:"2"},
-			{ y: 25,label:"3", indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },
-			{ y: 22,label:"4" },
-			{ y: 14 ,label:"5"},
-			{ y: 12,label:"6" },
-			{ y: 18 ,label:"7"},
-			{ y: 20 ,label:"8"},
-			{ y: 7 ,label:"9", indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
-			{ y: 22 ,label:"10"},
-			{ y: 12,label:"11" },
-			{ y: 13,label:"12" }
+<!--			{ y: 18,label:"1"},-->
+<!--			{ y: 21,label:"2"},-->
+<!--			{ y: 25,label:"3", indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },-->
+<!--			{ y: 22,label:"4" },-->
+<!--			{ y: 14 ,label:"5"},-->
+<!--			{ y: 12,label:"6" },-->
+<!--			{ y: 18 ,label:"7"},-->
+<!--			{ y: 20 ,label:"8"},-->
+<!--			{ y: 7 ,label:"9", indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },-->
+<!--			{ y: 22 ,label:"10"},-->
+<!--			{ y: 12,label:"11" },-->
+<!--			{ y: 13,label:"12" }-->
+{% for i in python_list %}
+{{i}}
+{% endfor %}
 		]
 	}]
 });
@@ -90,18 +95,21 @@ chart1.render();
       	indexLabelFontSize: 16,
 		dataPoints: [
 
-			{ y: 18,label:"1"},
-			{ y: 21,label:"2"},
-			{ y: 25,label:"3", indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },
-			{ y: 22,label:"4" },
-			{ y: 14 ,label:"5"},
-			{ y: 12,label:"6" },
-			{ y: 18 ,label:"7"},
-			{ y: 20 ,label:"8"},
-			{ y: 7 ,label:"9", indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
-			{ y: 22 ,label:"10"},
-			{ y: 12,label:"11" },
-			{ y: 13,label:"12" }
+<!--			{ y: 18,label:"1"},-->
+<!--			{ y: 21,label:"2"},-->
+<!--			{ y: 25,label:"3", indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },-->
+<!--			{ y: 22,label:"4" },-->
+<!--			{ y: 14 ,label:"5"},-->
+<!--			{ y: 12,label:"6" },-->
+<!--			{ y: 18 ,label:"7"},-->
+<!--			{ y: 20 ,label:"8"},-->
+<!--			{ y: 7 ,label:"9", indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },-->
+<!--			{ y: 22 ,label:"10"},-->
+<!--			{ y: 12,label:"11" },-->
+<!--			{ y: 13,label:"12" }-->
+{% for i in c_list %}
+{{i}}
+{% endfor %}
 		]
 	}]
 });
@@ -121,18 +129,21 @@ chart2.render();
       	indexLabelFontSize: 16,
 		dataPoints: [
 
-			{ y: 18,label:"1"},
-			{ y: 21,label:"2"},
-			{ y: 25,label:"3", indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },
-			{ y: 22,label:"4" },
-			{ y: 14 ,label:"5"},
-			{ y: 12,label:"6" },
-			{ y: 18 ,label:"7"},
-			{ y: 20 ,label:"8"},
-			{ y: 7 ,label:"9", indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
-			{ y: 22 ,label:"10"},
-			{ y: 12,label:"11" },
-			{ y: 13,label:"12" }
+<!--			{ y: 18,label:"1"},-->
+<!--			{ y: 21,label:"2"},-->
+<!--			{ y: 25,label:"3", indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },-->
+<!--			{ y: 22,label:"4" },-->
+<!--			{ y: 14 ,label:"5"},-->
+<!--			{ y: 12,label:"6" },-->
+<!--			{ y: 18 ,label:"7"},-->
+<!--			{ y: 20 ,label:"8"},-->
+<!--			{ y: 7 ,label:"9", indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },-->
+<!--			{ y: 22 ,label:"10"},-->
+<!--			{ y: 12,label:"11" },-->
+<!--			{ y: 13,label:"12" }-->
+{% for i in django_list %}
+{{i}}
+{% endfor %}
 		]
 	}]
 });
@@ -151,18 +162,21 @@ chart3.render();
       	indexLabelFontSize: 16,
 		dataPoints: [
 
-			{ y: 18,label:"1"},
-			{ y: 21,label:"2"},
-			{ y: 25,label:"3", indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },
-			{ y: 22,label:"4" },
-			{ y: 14 ,label:"5"},
-			{ y: 12,label:"6" },
-			{ y: 18 ,label:"7"},
-			{ y: 20 ,label:"8"},
-			{ y: 7 ,label:"9", indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
-			{ y: 22 ,label:"10"},
-			{ y: 12,label:"11" },
-			{ y: 13,label:"12" }
+<!--			{ y: 18,label:"1"},-->
+<!--			{ y: 21,label:"2"},-->
+<!--			{ y: 25,label:"3", indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },-->
+<!--			{ y: 22,label:"4" },-->
+<!--			{ y: 14 ,label:"5"},-->
+<!--			{ y: 12,label:"6" },-->
+<!--			{ y: 18 ,label:"7"},-->
+<!--			{ y: 20 ,label:"8"},-->
+<!--			{ y: 7 ,label:"9", indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },-->
+<!--			{ y: 22 ,label:"10"},-->
+<!--			{ y: 12,label:"11" },-->
+<!--			{ y: 13,label:"12" }-->
+{% for i in html_list %}
+{{i}}
+{% endfor %}
 		]
 	}]
 });
@@ -181,18 +195,21 @@ chart4.render();
       	indexLabelFontSize: 16,
 		dataPoints: [
 
-			{ y: 18,label:"1"},
-			{ y: 21,label:"2"},
-			{ y: 25,label:"3", indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },
-			{ y: 22,label:"4" },
-			{ y: 14 ,label:"5"},
-			{ y: 12,label:"6" },
-			{ y: 18 ,label:"7"},
-			{ y: 20 ,label:"8"},
-			{ y: 7 ,label:"9", indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
-			{ y: 22 ,label:"10"},
-			{ y: 12,label:"11" },
-			{ y: 13,label:"12" }
+<!--			{ y: 18,label:"1"},-->
+<!--			{ y: 21,label:"2"},-->
+<!--			{ y: 25,label:"3", indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },-->
+<!--			{ y: 22,label:"4" },-->
+<!--			{ y: 14 ,label:"5"},-->
+<!--			{ y: 12,label:"6" },-->
+<!--			{ y: 18 ,label:"7"},-->
+<!--			{ y: 20 ,label:"8"},-->
+<!--			{ y: 7 ,label:"9", indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },-->
+<!--			{ y: 22 ,label:"10"},-->
+<!--			{ y: 12,label:"11" },-->
+<!--			{ y: 13,label:"12" }-->
+{% for i in js_list %}
+{{i}}
+{% endfor %}
 		]
 	}]
 });
@@ -235,6 +252,7 @@ chart5.render();
 
 
 </script>
+{% endautoescape %}
 <!--pie chart-->
 
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
@@ -412,7 +430,7 @@ chart5.render();
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Rank</h5>
-                      <span class="h2 font-weight-bold mb-0">8th</span>
+                      <span class="h2 font-weight-bold mb-0">{{index}}</span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -430,7 +448,7 @@ chart5.render();
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Python CGPA</h5>
-                      <span class="h2 font-weight-bold mb-0">8th</span>
+                      <span class="h2 font-weight-bold mb-0">{{python_gp}}</span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -449,7 +467,7 @@ chart5.render();
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">C++ CGPA</h5>
-                      <span class="h2 font-weight-bold mb-0">8th</span>
+                      <span class="h2 font-weight-bold mb-0">{{c_gp}}</span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -468,7 +486,7 @@ chart5.render();
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Django CGPA</h5>
-                      <span class="h2 font-weight-bold mb-0">8th</span>
+                      <span class="h2 font-weight-bold mb-0">{{django_gp}}</span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -487,7 +505,7 @@ chart5.render();
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">HTML CGPA</h5>
-                      <span class="h2 font-weight-bold mb-0">8th</span>
+                      <span class="h2 font-weight-bold mb-0">{{html_gp}}</span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -505,7 +523,7 @@ chart5.render();
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">JavaScript</h5>
-                      <span class="h2 font-weight-bold mb-0">8th</span>
+                      <span class="h2 font-weight-bold mb-0">{{js_gp}}</span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -535,12 +553,12 @@ chart5.render();
 
     </div>
 
-
           </div>
         </div>
       </div>
       <!-- Footer -->
     </div>
+
   </div>
   <!--   Core   -->
   <script src="{% static '/assets/js/plugins/jquery/dist/jquery.min.js'%}"></script>
