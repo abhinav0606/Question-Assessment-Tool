@@ -10,7 +10,7 @@ from .models import Registration
 import os
 import json
 import pprint
-quiz_link="1"
+quiz_link="2"
 def login(request):
     registration_details=list(Registration.objects.all())
     username_list=[]
@@ -452,20 +452,71 @@ d=""
 @login_required(login_url="/login")
 def subject5(request):
     global quiz_link
-    username=str(request.user)
-    path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/JavaScript.json"
-    global d
+    username = str(request.user)
+    # commenting for the path(All the paths will be here)
+    path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/JavaScript.json"
+    quiz_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/{quiz_link}/JavaScript.json"
+    cgpa_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/cgpa.json"
+    accuracy_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/accuracy.json"
+    test_given_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/test_given.json"
+    # Processing the paths here
+    quiz_data = open(quiz_path)
+    quiz_data_json = json.load(quiz_data)
+    subject_data = open(path)
+    subject_data_json = json.load(subject_data)
+    subject_dummy = subject_data_json
+    cgpa_json = open(cgpa_path)
+    cgpa_json_data = json.load(cgpa_json)
+    cgpa_dummy = cgpa_json_data
+    accuracy_json = open(accuracy_path)
+    accuracy_json_data = json.load(accuracy_json)
+    accuracy_dummy = accuracy_json_data
+    test_given_json = open(test_given_path)
+    test_given_json_data = json.load(test_given_json)
+    test_given_dummy = test_given_json_data
     y = ""
+    if subject_data_json[quiz_link]["submitted"] == True:
+        y = "True"
     name = str(request.user.get_full_name())
     if str(request.user) == "QAT":
         lgt(request)
         return HttpResponseRedirect("/")
-    if request.method == "POST":
-        o1 = request.POST.get("o1", "default")
-        o2 = request.POST.get("o2", "default")
-        d = "True"
+    if request.method == "POST" and y == "":
         print("Yes")
-    return render(request, "Subject5.html", {"name": name, "x": d, "y": y})
+        count = 0
+        for i in range(1, 21):
+            option_selected = request.POST.get(f"Q{str(i)}", "")
+            if option_selected.lower() == quiz_data_json[f"Q{str(i)}"]["correct_answer"]:
+                count = count + 1
+            else:
+                pass
+        subject_dummy[quiz_link]["correct"] = count
+        subject_dummy[quiz_link]["wrong"] = 20 - count
+        subject_dummy[quiz_link]["accuracy"] = (count / 20) * 100
+        subject_dummy[quiz_link]["submitted"] = True
+        subject_dummy[quiz_link]["cgpa"] = (count / 20) * 10
+        accuracy_dummy["JavaScript"].append((count / 20) * 100)
+        accuracy_json_data["accuracy"].append((count / 20) * 100)
+        test_given_dummy["Test_Given"] = test_given_dummy["Test_Given"] + 1
+        l_cgpa = cgpa_dummy[quiz_link]
+        l_cgpa.append((count / 20) * 10)
+        cgpa_dummy[quiz_link] = l_cgpa
+        cgpa_dummy["overall_cgpa"][int(quiz_link) - 1] = (sum(l_cgpa) / 5)
+        cgpa_dummy["JavaScript"].append((count / 20) * 10)
+        cgpa_writer = json.dumps(cgpa_dummy, indent=6)
+        subject_writer = json.dumps(subject_dummy, indent=6)
+        accuracy_writer = json.dumps(accuracy_dummy, indent=6)
+        test_given_writer = json.dumps(test_given_dummy, indent=4)
+        with open(test_given_path, "w") as f:
+            f.write(test_given_writer)
+        with open(accuracy_path, "w") as f:
+            f.write(accuracy_writer)
+        with open(path, "w") as f:
+            f.write(subject_writer)
+        with open(cgpa_path, "w") as f:
+            f.write(cgpa_writer)
+        y = "True"
+    return render(request, "Subject5.html", {"name": name, "y": y, "quiz": quiz_data_json})
 @login_required(login_url="/login")
 def result(request):
     global quiz_link

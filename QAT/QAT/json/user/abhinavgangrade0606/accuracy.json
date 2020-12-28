@@ -1,8 +1,24 @@
 {
-      "accuracy": [],
-      "Python": [],
-      "C++": [],
-      "Django": [],
-      "HTML": [],
-      "JavaScript": []
+      "accuracy": [
+            70.0,
+            80.0,
+            45.0,
+            50.0,
+            80.0
+      ],
+      "Python": [
+            80.0
+      ],
+      "C++": [
+            45.0
+      ],
+      "Django": [
+            50.0
+      ],
+      "HTML": [
+            70.0
+      ],
+      "JavaScript": [
+            80.0
+      ]
 }

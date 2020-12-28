@@ -1,162 +1,162 @@
 {
      "Q1": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following is true about variable naming conventions in JavaScript?",
+          "o1": "You should not use any of the JavaScript reserved keyword as variable name",
+          "o2": "JavaScript variable names should not start with a numeral (0-9).",
+          "o3": "Both of the above",
+          "o4": "None of the Above",
+          "correct_answer": "q1o3"
      },
      "Q2": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following is the correct syntax to print a page using JavaScript?",
+          "o1": "window.print();",
+          "o2": "browser.print()",
+          "o3": "navigator.print();",
+          "o4": "document.print();",
+          "correct_answer": "q2o1"
      },
      "Q3": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which built-in method returns the length of the string?",
+          "o1": "length()",
+          "o2": "size()",
+          "o3": "index()",
+          "o4": "None of the Above",
+          "correct_answer": "q3o1"
      },
      "Q4": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": " Which built-in method returns the calling string value converted to upper case?",
+          "o1": "toUpperCase()",
+          "o2": "toUpper()",
+          "o3": "changeCase(case)",
+          "o4": "None of the Above",
+          "correct_answer": "q4o1"
      },
      "Q5": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following function of String object returns a number indicating the Unicode value of the character at the given index?",
+          "o1": "charAt()",
+          "o2": "charCodeAt()",
+          "o3": "concat()",
+          "o4": "indexOf()",
+          "correct_answer": "q5o2"
      },
      "Q6": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following function of String object returns the index within the calling String object of the last occurrence of the specified value?",
+          "o1": "lastIndexOf()",
+          "o2": "search()",
+          "o3": "substr()",
+          "o4": "indexOf()",
+          "correct_answer": "q6o1"
      },
      "Q7": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following function of String object returns a string representing the specified object?",
+          "o1": "toLocaleUpperCase()",
+          "o2": "toUpperCase()",
+          "o3": "toString()",
+          "o4": "substring()",
+          "correct_answer": "q7o3"
      },
      "Q8": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following function of String object causes a string to be displayed in the specified color as if it were in a <font color='color'> tag?",
+          "o1": "fixed()",
+          "o2": "fontcolor()",
+          "o3": "blink()",
+          "o4": "bold()",
+          "correct_answer": "q8o2"
      },
      "Q9": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following function of Array object returns the first (least) index of an element within the array equal to the specified value, or -1 if none is found?",
+          "o1": "indexOf()",
+          "o2": "join()",
+          "o3": "lastIndexOf()",
+          "o4": "map()",
+          "correct_answer": "q9o1"
      },
      "Q10": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following function of Array object adds and/or removes elements from an array?",
+          "o1": "toSource()",
+          "o2": "sort()",
+          "o3": "splice()",
+          "o4": "umshift()",
+          "correct_answer": "q10o3"
      },
      "Q11": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": " What is the HTML tag under which one can write the JavaScript code?",
+          "o1": "<javascript>",
+          "o2": "<scriped>",
+          "o3": "<script>",
+          "o4": "<js>",
+          "correct_answer": "q11o3"
      },
      "Q12": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": " Choose the correct JavaScript syntax to change the content of the following HTML code.\n\n<p id=\"geek\">GeeksforGeeks</p> \n",
+          "o1": "document.getElement(“geek”).innerHTML=”I am a Geek”;",
+          "o2": "document.getElementById(“geek”).innerHTML=”I am a Geek”;",
+          "o3": "document.getId(“geek”)=”I am a Geek”;",
+          "o4": "document.getElementById(“geek”).innerHTML=I am a Geek;",
+          "correct_answer": "q12o2"
      },
      "Q13": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following is the correct syntax to display “GeeksforGeeks” in an alert box using JavaScript?",
+          "o1": "alertbox(“GeeksforGeeks”);",
+          "o2": "msg(“GeeksforGeeks”);",
+          "o3": "msgbox(“GeeksforGeeks”);",
+          "o4": "alert(“GeeksforGeeks”);",
+          "correct_answer": "q13o4"
      },
      "Q14": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What is the correct syntax for referring to an external script called “geek.js”?",
+          "o1": "<script src=”geek.js”>",
+          "o2": "<script href=”geek.js”>",
+          "o3": "<script ref=”geek.js”>",
+          "o4": "<script name=”geek.js”",
+          "correct_answer": "q14o1"
      },
      "Q15": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "The external JavaScript file must contain <script> tag. True or False? ",
+          "o1": "True",
+          "o2": "False",
+          "o3": "Not sure about this",
+          "o4": "None",
+          "correct_answer": "q15o2"
      },
      "Q16": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Predict the output of the following JavaScript code.\n\n\n<script type=\"text/javascript\"> \na = 8 + \"8\"; \ndocument.write(a); \n</script> \n",
+          "o1": "16",
+          "o2": "Compilation Error",
+          "o3": "88",
+          "o4": "Run time error",
+          "correct_answer": "q16o3"
      },
      "Q17": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": " Predict the output of the following JavaScript code.\n\n\n<script type=\"text/javascript\"> \nvar a=\"GeeksforGeeks\"; \nvar x=a.lastIndexOf(\"G\"); \ndocument.write(x); \n</script> \n",
+          "o1": "8",
+          "o2": "0",
+          "o3": "9",
+          "o4": "Error",
+          "correct_answer": "q17o1"
      },
      "Q18": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following is not a reserved word in JavaScript?",
+          "o1": "interface",
+          "o2": "throws",
+          "o3": "program",
+          "o4": "short",
+          "correct_answer": "q18o3"
      },
      "Q19": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Predict the output of the following JavaScript code.\n\n\n<script type=\"text/javascript\" language=\"javascript\"> \n\nvar a = \"GeeksforGeeks\"; \nvar result = a.substring(4, 5); \ndocument.write(result); \n\n</script> \n",
+          "o1": "sf",
+          "o2": "ks",
+          "o3": "s",
+          "o4": "k",
+          "correct_answer": "q19o3"
      },
      "Q20": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Predict the output of the following JavaScript code. \n\n\n<script type=\"text/javascript\" language=\"javascript\"> \n\nvar x=5; \nvar y=6; \nvar res=eval(\"x*y\"); \ndocument.write(res); \n\n</script> \n",
+          "o1": "'30'",
+          "o2": "30",
+          "o3": "5*6",
+          "o4": "'5*6'",
+          "correct_answer": "q20o2"
      }
 }
