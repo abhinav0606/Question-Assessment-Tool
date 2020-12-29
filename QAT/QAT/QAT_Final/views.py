@@ -15,6 +15,12 @@ def login(request):
     username_list=[]
     email_list=[]
     login_dict={}
+    social_username=[]
+    social_email=[]
+    l=list(User.objects.all())
+    for i in l:
+        social_username.append(i.username)
+        social_email.append(i.email)
     for i in registration_details:
         username_list.append(i.username)
         email_list.append(i.email)
@@ -34,6 +40,10 @@ def login(request):
         if name!="default":
             if username in username_list:
                 return render(request,"index.html",{'message':"Username Already Exist"})
+            elif username in social_username:
+                return render(request, "index.html", {'message': "Username Already Exist"})
+            elif email in social_email:
+                return render(request, "index.html", {"message": "Email Already registered"})
             elif email in email_list:
                 return render(request,"index.hmtl",{"message":"Email Already registered"})
             else:
@@ -42,18 +52,21 @@ def login(request):
                 u.first_name=name
                 u.save()
         if username_lgn!="default":
-            if username_lgn in username_list:
-                if password_lgn==login_dict[username_lgn]:
-                    user=authenticate(request,username=username_lgn,password=password_lgn)
-                    lgn(request,user)
-                    if nt=="":
-                        return HttpResponseRedirect("/")
+            try:
+                if username_lgn in username_list:
+                    if password_lgn==login_dict[username_lgn]:
+                        user=authenticate(request,username=username_lgn,password=password_lgn)
+                        lgn(request,user)
+                        if nt=="":
+                            return HttpResponseRedirect("/")
+                        else:
+                            return HttpResponseRedirect(nt)
                     else:
-                        return HttpResponseRedirect(nt)
+                        return render(request,"index.html",{"message":"Password is incorrect"})
                 else:
-                    return render(request,"index.html",{"message":"Password is incorrect"})
-            else:
-                return render(request,"index.html",{"message":"Username doesnot Exist"})
+                    return render(request,"index.html",{"message":"Username doesnot Exist"})
+            except:
+                return HttpResponse("I think the username and email id you are using is already registered and using it twice")
     return render(request,"index.html",{"message":""})
 def change_password(request):
     if request.method=="POST":
@@ -174,7 +187,7 @@ def Dashboard(request):
         for i in range(len(cgpa_data_json["overall_cgpa"])):
             listy.append("{"+f'y: {str(cgpa_data_json["overall_cgpa"][i])},label:"{str(i+1)}"'+"},")
     print(listy)
-    return render(request,"dash.html",{"name":name,"cg":cgpa,"cgh":cgpa_highest,"accuracy":accuracy,"test":test,"l":listy})
+    return render(request,"dash.html",{"username":str(request.user),"name":name,"cg":cgpa,"cgh":cgpa_highest,"accuracy":accuracy,"test":test,"l":listy})
 def logout(request):
     if request.user.is_authenticated:
         lgt(request)
@@ -255,7 +268,7 @@ def subject1(request):
         with open(rank_path,"w") as f:
             f.write(rank_writter)
         y="True"
-    return render(request,"Subject1.html",{"name":name,"y":y,"quiz":quiz_data_json})
+    return render(request,"Subject1.html",{"username":str(request.user),"name":name,"y":y,"quiz":quiz_data_json})
 
 @login_required(login_url="/login")
 def subject2(request):
@@ -331,7 +344,7 @@ def subject2(request):
         with open(rank_path,"w") as f:
             f.write(rank_writter)
         y="True"
-    return render(request,"Subject2.html",{"name":name,"y":y,"quiz":quiz_data_json})
+    return render(request,"Subject2.html",{"username":str(request.user),"name":name,"y":y,"quiz":quiz_data_json})
 
 @login_required(login_url="/login")
 def subject3(request):
@@ -407,7 +420,7 @@ def subject3(request):
         with open(rank_path,"w") as f:
             f.write(rank_writter)
         y = "True"
-    return render(request, "Subject3.html", {"name": name, "y": y, "quiz": quiz_data_json})
+    return render(request, "Subject3.html", {"username":str(request.user),"name": name, "y": y, "quiz": quiz_data_json})
 c=""
 @login_required(login_url="/login")
 def subject4(request):
@@ -483,7 +496,7 @@ def subject4(request):
         with open(rank_path,"w") as f:
             f.write(rank_writter)
         y = "True"
-    return render(request, "Subject4.html", {"name": name, "y": y, "quiz": quiz_data_json})
+    return render(request, "Subject4.html", {"username":str(request.user),"name": name, "y": y, "quiz": quiz_data_json})
 d=""
 @login_required(login_url="/login")
 def subject5(request):
@@ -559,7 +572,7 @@ def subject5(request):
         with open(rank_path,"w") as f:
             f.write(rank_writter)
         y = "True"
-    return render(request, "Subject5.html", {"name": name, "y": y, "quiz": quiz_data_json})
+    return render(request, "Subject5.html", {"username":str(request.user),"name": name, "y": y, "quiz": quiz_data_json})
 @login_required(login_url="/login")
 def result(request):
     global quiz_link
@@ -717,7 +730,7 @@ def analysis(request):
     rank_data=json.load(open(rank_path))
     l=sorted(rank_data,key=lambda x:sum(rank_data[x]),reverse=True)
     index=l.index(username)+1
-    return render(request,"Analysis.html",{"name":name,"python_gp":python_cgpa,"c_gp":c_cgpa,"django_gp":django_cgpa,"html_gp":html_cgpa,"js_gp":js_cgpa,"python_list":python_list,"c_list":c_list,
+    return render(request,"Analysis.html",{"username":str(request.user),"name":name,"python_gp":python_cgpa,"c_gp":c_cgpa,"django_gp":django_cgpa,"html_gp":html_cgpa,"js_gp":js_cgpa,"python_list":python_list,"c_list":c_list,
                                            "django_list":django_list,"html_list":html_list,"js_list":js_list,
                                            "py_acc":py_acc,"c_acc":c_acc,"django_acc":django_acc,"html_acc":html_acc,"js_acc":js_acc,"index":index
                                            })
