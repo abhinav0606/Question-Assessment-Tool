@@ -9,7 +9,7 @@ from django.contrib.auth import authenticate
 from .models import Registration
 import os
 import json
-quiz_link="1"
+quiz_link="2"
 def login(request):
     registration_details=list(Registration.objects.all())
     username_list=[]
@@ -624,7 +624,7 @@ def result(request):
             django[i]="--"
             html[i]="--"
             js[i]="--"
-    return render(request,"Result.html",{"name":name,"cgpa":cgpa,"python":python,"c":c,"django":django,"html":html,"js":js})
+    return render(request,"Result.html",{"username":username,"name":name,"cgpa":cgpa,"python":python,"c":c,"django":django,"html":html,"js":js})
 # added
 @login_required(login_url="/login")
 def analysis(request):

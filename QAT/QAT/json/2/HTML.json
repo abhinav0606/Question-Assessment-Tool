@@ -1,162 +1,162 @@
 {
      "Q1": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What does HTML stands for? ",
+          "o1": "Hypertext Machine language.",
+          "o2": "Hypertext and links markup language. ",
+          "o3": "Hypertext Markup Language.",
+          "o4": "Hightext machine language. ",
+          "correct_answer": "q1o3"
      },
      "Q2": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "How is document type initialized in HTML5.?",
+          "o1": "</DOCTYPE HTML> ",
+          "o2": "</DOCTYPE> ",
+          "o3": "<!DOCTYPE HTML> ",
+          "o4": "</DOCTYPE html> ",
+          "correct_answer": "q2o3"
      },
      "Q3": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following HTML Elements is used for making any text bold ? ",
+          "o1": "<p>",
+          "o2": "<i>",
+          "o3": "<li>",
+          "o4": "<b>",
+          "correct_answer": "q3o4"
      },
      "Q4": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following HTML element is used for creating an unordered list? ",
+          "o1": "<ui>",
+          "o2": "<i>",
+          "o3": "<em>",
+          "o4": "<ul>",
+          "correct_answer": "q4o4"
      },
      "Q5": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following characters indicate closing of a tag? ",
+          "o1": ".",
+          "o2": "/",
+          "o3": "\\",
+          "o4": "!",
+          "correct_answer": "q5o2"
      },
      "Q6": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What is the font-size of the h1 heading tag?",
+          "o1": "3.5 em",
+          "o2": "2.17 em",
+          "o3": "2 em",
+          "o4": "1.5 em",
+          "correct_answer": "q6o3"
      },
      "Q7": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "How many heading tags are there in HTML5? ",
+          "o1": "2",
+          "o2": "3",
+          "o3": "5",
+          "o4": "6",
+          "correct_answer": "q7o4"
      },
      "Q8": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "How many attributes are there in HTML5? ",
+          "o1": "2",
+          "o2": "4",
+          "o3": "1",
+          "o4": "5",
+          "correct_answer": "q8o1"
      },
      "Q9": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following attributes is used to add link to any element? ",
+          "o1": "link",
+          "o2": "ref",
+          "o3": "href",
+          "o4": "newref",
+          "correct_answer": "q9o3"
      },
      "Q10": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following is the correct way of creating an hyperlink in HTML?",
+          "o1": "<a>www.geeksforgeeks.org <Geeksforgeeks /a>",
+          "o2": "<a href=“www.geeksforgeeks.org” Geeksforgeeks /a> ",
+          "o3": "<a href= “www.geeksforgeeks.org”>Geeksforgeeks</a>",
+          "o4": "<a link=“www.geeksforgeeks.org” Geeksforgeeks> </a> ",
+          "correct_answer": "q10o3"
      },
      "Q11": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "What is the purpose of using div tags in HTML?",
+          "o1": "For creating Different styles.",
+          "o2": "For creating different sections.",
+          "o3": "For adding headings.",
+          "o4": "For adding titles.",
+          "correct_answer": "q11o2"
      },
      "Q12": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following tags is used to make a portion of text italic in HTML? ",
+          "o1": "<italic>",
+          "o2": "<style= “i”>",
+          "o3": "<i>",
+          "o4": "<style=“italic”>",
+          "correct_answer": "q12o3"
      },
      "Q13": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following tags is used to add a line-break in HTML?",
+          "o1": "<br>",
+          "o2": "<break>",
+          "o3": "</break>",
+          "o4": "</br>",
+          "correct_answer": "q13o1"
      },
      "Q14": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following attributes is used to open an hyperlink in new tab? ",
+          "o1": "tab",
+          "o2": "href",
+          "o3": "target",
+          "o4": "ref",
+          "correct_answer": "q14o3"
      },
      "Q15": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following is the correct way to add background color in HTML?",
+          "o1": "<body color = “green”>",
+          "o2": "<body bg-color = “green”>",
+          "o3": "<body style = “background-color=green”>",
+          "o4": "<body style = “background-color: green;”>",
+          "correct_answer": "q15o4"
      },
      "Q16": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which among the following is correct HTML code for making a checkbox? ",
+          "o1": "<checkbox>",
+          "o2": "<input type=\"checkbox\">",
+          "o3": "<check>",
+          "o4": "<input type=\"check\">",
+          "correct_answer": "q16o2"
      },
      "Q17": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which tag is used for creating a drop-down selection list?",
+          "o1": "<select>",
+          "o2": "<option>",
+          "o3": "<dropdown>",
+          "o4": "<list>",
+          "correct_answer": "q17o3"
      },
      "Q18": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which tag is used to add an header in HTML5 table?",
+          "o1": "<theader>",
+          "o2": "<h1>",
+          "o3": "<th>",
+          "o4": "<header>",
+          "correct_answer": "q18o3"
      },
      "Q19": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
-          "correct_answer": ""
+          "Heading": "Which of the following elements can be used in HTML to create a table?",
+          "o1": "<table> , <tbody> , <trow> ",
+          "o2": "<table> , <tb> , <trow> ",
+          "o3": "<table> , <tbody> , <tr> ",
+          "o4": "All of the Above",
+          "correct_answer": "q19o3"
      },
      "Q20": {
-          "Heading": "",
-          "o1": "",
-          "o2": "",
-          "o3": "",
-          "o4": "",
+          "Heading": "Which among the following is the correct way in HTML to insert an image? ",
+          "o1": "<img url=“https://bit.ly/2FicgIx”>Geeksforgeeks</img> ",
+          "o2": "<img href=“https://bit.ly/2FicgIx” alt= “Geeksforgeeks”></img>",
+          "o3": "<img src=“https://bit.ly/2FicgIx” alt=“Geeksforgeeks”> ",
+          "o4": "<image src=“https://bit.ly/2FicgIx” alt=“Geeksforgeeks”></image>",
           "correct_answer": ""
      }
 }

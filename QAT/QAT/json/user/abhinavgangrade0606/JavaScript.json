@@ -7,11 +7,11 @@
             "cgpa": 8.5
       },
       "2": {
-            "correct": 0,
-            "wrong": 0,
-            "accuracy": 0,
-            "submitted": false,
-            "cgpa": 0
+            "correct": 14,
+            "wrong": 6,
+            "accuracy": 70.0,
+            "submitted": true,
+            "cgpa": 7.0
       },
       "3": {
             "correct": 0,
