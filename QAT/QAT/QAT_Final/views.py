@@ -1,3 +1,4 @@
+# importing all the modules---------------------
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
@@ -9,7 +10,12 @@ from django.contrib.auth import authenticate
 from .models import Registration
 import os
 import json
+import pdfkit
+# -------------------------------------------------------
+# quiz link that we have to make active
 quiz_link="2"
+# -------------------------------------------------------
+# Authentication part of the app----------------------------------------
 def login(request):
     registration_details=list(Registration.objects.all())
     username_list=[]
@@ -68,6 +74,7 @@ def login(request):
             except:
                 return HttpResponse("I think the username and email id you are using is already registered and using it twice")
     return render(request,"index.html",{"message":""})
+# --------------------------------------------------------------------------------
 def change_password(request):
     if request.method=="POST":
         username=request.POST.get("username","default")
@@ -734,5 +741,33 @@ def analysis(request):
                                            "django_list":django_list,"html_list":html_list,"js_list":js_list,
                                            "py_acc":py_acc,"c_acc":c_acc,"django_acc":django_acc,"html_acc":html_acc,"js_acc":js_acc,"index":index
                                            })
-
+@login_required(login_url="/login")
+def report(request):
+    username=str(request.user)
+    Python_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/Python.json"
+    c_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/C++.json"
+    django_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/Django.json"
+    html_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/HTML.json"
+    js_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/JavaScript.json"
+    cgpa_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/cgpa.json"
+    python_data=json.load(open(Python_path))
+    c_data=json.load(open(c_path))
+    django_data=json.load(open(django_path))
+    html_data=json.load(open(html_path))
+    js_data=json.load(open(js_path))
+    cgpa_data=json.load(open(cgpa_path))
+    cgpa_series=cgpa_data["overall_cgpa"][int(quiz_link)-1]
+    ovcgpa=sum(cgpa_data["overall_cgpa"][:int(quiz_link)])/int(quiz_link)
+    rank_path="/home/abhinav/PycharmProjects/QAT/QAT/json/rank_list.json"
+    rank_data=json.load(open(rank_path))
+    l=sorted(rank_data,key=lambda x:sum(rank_data[x]),reverse=True)
+    index=l.index(username)+1
+    text = f"<div style='text-align:center'><img src='/home/abhinav/PycharmProjects/QAT/QAT/static/logo.png'></div><h1 style='text-align:center;color:red;background-color:black'>QAT Result<br>Project Report Test Series {quiz_link} <br>Name:{str(request.user.get_full_name())}<br>Username:{username}</h1>" \
+           f"<div style='text-align:center;background-color:grey'><br><h1>Marks</h1><p>Python:{python_data[quiz_link]['correct']}/20 with accuracy {python_data[quiz_link]['accuracy']}</p><p>C++:{c_data[quiz_link]['correct']}/20 with accuracy {c_data[quiz_link]['accuracy']}</p>" \
+           f"<p>Django:{django_data[quiz_link]['correct']}/20 with accuracy {django_data[quiz_link]['accuracy']}</p><p>HTML:{html_data[quiz_link]['correct']}/20 with accuracy {html_data[quiz_link]['accuracy']}</p><p>JavaScript:{js_data[quiz_link]['correct']}/20 with accuracy {js_data[quiz_link]['accuracy']}</p><br></div>" \
+           f"<div style='text-align:center;background-color:red'><h1>CGPA of series link {quiz_link}: {cgpa_series}</h1><h1>Overall Cgpa : {ovcgpa} </h1><h1>Rank:{index}</h1><br><br><h1>Signature</h1></div>"
+    pdfkit.from_string(text,f"/home/abhinav/PycharmProjects/QAT/QAT/static/{username}.pdf")
+    link="{% static '"+username+".pdf' %}"
+    print(link)
+    return render(request,"report.html",{"username":f"{username}.pdf","link":str(link)})
 
