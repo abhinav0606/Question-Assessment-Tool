@@ -239,15 +239,15 @@ chart.render();
     }
 </script>
            <form onsubmit=document.getElementById('MCQuestion').style.display = 'none'  method="post" style="color:black;" name="MCQuestion" id="MCQuestion">{%csrf_token%}
-                        <div><span id="display" style="color:#FF0000;font-size:15px"></span></div><br>
+                        <div><span id="display" style="color:black;font-size:15px"></span></div><br>
            {% for i,j in quiz.items %}
-              {{i}}){{j.Heading|linebreaksbr}}<br>
+              <b>{{i}}){{j.Heading|linebreaksbr}}<br>
               <br><div> <input type="radio" id="{{i}}o1" name="{{i}}" value="{{i}}o1">&nbsp;<label for="{{i}}o1">{{j.o1|linebreaksbr}}</label></div>
 
               <div><input type="radio" id="{{i}}o2" name="{{i}}" value="{{i}}o2">&nbsp;<label for="{{i}}o2">{{j.o2|linebreaksbr}}</label></div>
               <div><input type="radio" id="{{i}}o3" name="{{i}}" value="{{i}}o3">&nbsp;<label for="{{i}}o3">{{j.o3|linebreaksbr}}</label></div>
               <div><input type="radio" id="{{i}}o4" name="{{i}}" value="{{i}}o4">&nbsp;<label for="{{i}}o4">{{j.o4|linebreaksbr}}</label></div><br><br><br>
-                {% endfor %}
+              </b>{% endfor %}
               <br><button type="submit">Submit</button>
               <br>
             </form>
@@ -261,7 +261,6 @@ chart.render();
       </div>
 
 <br><br><br><br>
-
     </div>
 
 
@@ -271,6 +270,7 @@ chart.render();
       <!-- Footer -->
     </div>
   </div>
+
   <!--   Core   -->
   <script src="{% static '/assets/js/plugins/jquery/dist/jquery.min.js'%}"></script>
   <script src="{% static '/assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js'%}"></script>
@@ -294,6 +294,7 @@ chart.render();
 
                             minutes = minutes < 10 ? "0" + minutes : minutes;
                             seconds = seconds < 10 ? "0" + seconds : seconds;
+
                     display.innerHTML ="<b>" + minutes + "m : " + seconds + "s" + "</b>";
                             if (timer > 0) {
                                --timer;
@@ -318,6 +319,7 @@ chart.render();
 function myFunction() {
   alert("You can only give this quiz once you click on yes your quiz will get started");
 }
+
 </body>
 
 </html>

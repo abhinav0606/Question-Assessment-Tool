@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="divCounter"></div>
+    <div><span id="display" style="color:black;font-size:15px"></span></div><br>
+    <script type="text/javascript">
+var div = document.getElementById('display');
+display.innerHTML ="<b>" + sessionStorage.getItem("minutes") + "m : " + sessionStorage.getItem("seconds") + "s" + "</b>";
+    function CountDown(duration, display) {
+
+                        var timer = duration, minutes, seconds;
+                      var interVal=  setInterval(function () {
+                            minutes = parseInt(timer / 60, 10);
+                            seconds = parseInt(timer % 60, 10);
+
+                            minutes = minutes < 10 ? "0" + minutes : minutes;
+                            seconds = seconds < 10 ? "0" + seconds : seconds;
+sessionStorage.setItem("minutes",minutes);
+sessionStorage.setItem("seconds",seconds);
+<!--display.innerHTML ="<b>" + sessionStorage.getItem("minutes") + "m : " + sessionStorage.getItem("seconds") + "s" + "</b>";-->
+<!--                    display.innerHTML ="<b>" + minutes + "m : " + seconds + "s" + "</b>";-->
+                            if (timer > 0) {
+                               --timer;
+                            }else{
+                       clearInterval(interVal)
+                                SubmitFunction();
+                             }
+
+                       },1000);
+
+                }
+
+              function SubmitFunction(){
+                submitted.innerHTML="Time is up!";
+                document.getElementById('MCQuestion').submit();
+                document.getElementById('MCQuestion').hide();
+               }
+               CountDown(1200,div);
+  </script>
+</body>
+
+</html>

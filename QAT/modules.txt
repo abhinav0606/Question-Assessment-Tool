@@ -1,0 +1,19 @@
+Modules used in this App:
+1) social_django for social authentication
+2) django for the framework
+3) django.shortcuts to render the template
+4) django.Http for the HttpResponse
+5) django.contrib.auth for the authentication,logout,login,authenticate
+5) os
+6) json for handling the database files and loading the database files
+7) pdfkit to generate a report card of the user in the .pdf format
+8) django.urls to connect the end point with the url
+9)   Social Authentication
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend'
+
+    use specific keys for every backend.
+10) Frontend : HTML,CSS,JAVASCRIPT

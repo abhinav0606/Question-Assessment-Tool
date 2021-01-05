@@ -13,13 +13,15 @@ import json
 import pdfkit
 # -------------------------------------------------------
 # quiz link that we have to make active
-quiz_link="2"
+quiz_link="1"
 # -------------------------------------------------------
 # Authentication part of the app----------------------------------------
 def login(request):
+    # getting the list of all the attributes like username email etc
     registration_details=list(Registration.objects.all())
     username_list=[]
     email_list=[]
+    # this dictionary will store the username with password
     login_dict={}
     social_username=[]
     social_email=[]
@@ -31,9 +33,12 @@ def login(request):
         username_list.append(i.username)
         email_list.append(i.email)
         login_dict[i.username]=i.password
+    # this variable will store the nect attribute during the authentication part
     nt=""
+    # getting the next value if its there
     if request.GET:
         nt=request.GET.get("next")
+    # accessing the posted value from the frontend side
     if request.method=="POST":
         name=request.POST.get("name","default")
         email=request.POST.get("email","default")
@@ -43,6 +48,7 @@ def login(request):
         password_lgn=request.POST.get("password_lgn","default")
         print(username)
         print(password)
+        # registration part of the authentication
         if name!="default":
             if username in username_list:
                 return render(request,"index.html",{'message':"Username Already Exist"})
@@ -57,12 +63,16 @@ def login(request):
                 u=User.objects.create_user(username,email,password)
                 u.first_name=name
                 u.save()
+        # login part of the authentication
         if username_lgn!="default":
             try:
                 if username_lgn in username_list:
                     if password_lgn==login_dict[username_lgn]:
+                        # matching the credential and after that authenticating everything
                         user=authenticate(request,username=username_lgn,password=password_lgn)
+                        # login with the help of login function
                         lgn(request,user)
+                        # if theres a next then redirecting to the next value
                         if nt=="":
                             return HttpResponseRedirect("/")
                         else:
@@ -75,6 +85,7 @@ def login(request):
                 return HttpResponse("I think the username and email id you are using is already registered and using it twice")
     return render(request,"index.html",{"message":""})
 # --------------------------------------------------------------------------------
+# forget password section of the authentication if someone forgets his password
 def change_password(request):
     if request.method=="POST":
         username=request.POST.get("username","default")
@@ -94,14 +105,19 @@ def change_password(request):
         except:
             return render(request,"change_password.html",{"message":"Username Doesnt Exist"})
     return render(request,"change_password.html",{"message":""})
+# -----------------------------------------------------------------------------
+# moving to the dashboard part of the app
 @login_required(login_url="/login")
 def Dashboard(request):
     global quiz_link
     username=str(request.user)
     name=str(request.user.get_full_name())
+    # checking for the admin panel login
     if str(request.user)=="QAT":
         lgt(request)
         return HttpResponseRedirect("/")
+    # when getting into the dashboard for the first time then creating the database for the particular users to store the quiz
+    # credentials
     try:
         os.mkdir("/home/abhinav/PycharmProjects/QAT/QAT/json/user/"+str(request.user))
         d={}
@@ -158,13 +174,14 @@ def Dashboard(request):
         writter=json.dumps(rank_dictionary,indent=5)
         with open("/home/abhinav/PycharmProjects/QAT/QAT/json/rank_list.json","w") as f:
             f.write(writter)
+        os.mkdir(f"/home/abhinav/PycharmProjects/QAT/QAT/static/{str(request.user)}")
     except:
         pass
     # path to the various files
     cgpa_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/cgpa.json"
     accuracy_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/accuracy.json"
     test_given=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/test_given.json"
-    # json data
+    # json data that is going to be showed on the dashboard of the user
     cgpa_json=open(cgpa_path)
     cgpa_data_json=json.load(cgpa_json)
     accuracy_json=open(accuracy_path)
@@ -195,12 +212,16 @@ def Dashboard(request):
             listy.append("{"+f'y: {str(cgpa_data_json["overall_cgpa"][i])},label:"{str(i+1)}"'+"},")
     print(listy)
     return render(request,"dash.html",{"username":str(request.user),"name":name,"cg":cgpa,"cgh":cgpa_highest,"accuracy":accuracy,"test":test,"l":listy})
+# ----------------------------------------------------------------------------
+# logout-------------------------
 def logout(request):
+    # if user is authenticated then logging it out with the help of logout function
     if request.user.is_authenticated:
         lgt(request)
         return HttpResponseRedirect("/")
     else:
         return HttpResponseRedirect("/")
+# subject 1 that is python
 @login_required(login_url="/login")
 def subject1(request):
     global quiz_link
@@ -212,6 +233,7 @@ def subject1(request):
     accuracy_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/accuracy.json"
     test_given_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/test_given.json"
     rank_path="/home/abhinav/PycharmProjects/QAT/QAT/json/rank_list.json"
+    # all the json data that is going to be published on the app
     rank_data=json.load(open(rank_path))
     rank_dict=rank_data
     # Processing the paths here
@@ -229,7 +251,9 @@ def subject1(request):
     test_given_json=open(test_given_path)
     test_given_json_data=json.load(test_given_json)
     test_given_dummy=test_given_json_data
+    # to end the quiz
     y=""
+    # ------
     if subject_data_json[quiz_link]["submitted"]==True:
         y="True"
     name = str(request.user.get_full_name())
@@ -276,7 +300,8 @@ def subject1(request):
             f.write(rank_writter)
         y="True"
     return render(request,"Subject1.html",{"username":str(request.user),"name":name,"y":y,"quiz":quiz_data_json})
-
+# -------------------------------------------------------------------------
+# subject 2 that is c++ same as the above
 @login_required(login_url="/login")
 def subject2(request):
     global quiz_link
@@ -580,6 +605,7 @@ def subject5(request):
             f.write(rank_writter)
         y = "True"
     return render(request, "Subject5.html", {"username":str(request.user),"name": name, "y": y, "quiz": quiz_data_json})
+# result of individual with the help of the username
 @login_required(login_url="/login")
 def result(request):
     global quiz_link
@@ -588,6 +614,7 @@ def result(request):
     if str(request.user)=="QAT":
         lgt(request)
         return HttpResponseRedirect("/")
+    # cgpa path and cgpa data
     cgpa_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/cgpa.json"
     python_score=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/Python.json"
     c_score=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/C++.json"
@@ -600,6 +627,7 @@ def result(request):
     django_data=json.load(open(django_score))
     html_data=json.load(open(html_score))
     js_data=json.load(open(js_score))
+    # -------------------------------------------------------
     cgpa={}
     python={}
     c={}
@@ -632,7 +660,8 @@ def result(request):
             html[i]="--"
             js[i]="--"
     return render(request,"Result.html",{"username":username,"name":name,"cgpa":cgpa,"python":python,"c":c,"django":django,"html":html,"js":js})
-# added
+#-----------------------------------------------------------------
+# analysis which contains the rank,cgpa and graphical analysis part
 @login_required(login_url="/login")
 def analysis(request):
     global quiz_link
@@ -641,7 +670,7 @@ def analysis(request):
     if str(request.user)=="QAT":
         lgt(request)
         return HttpResponseRedirect("/")
-    # path to files
+    # path to files and the data of those json files
     cgpa_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/cgpa.json"
     python_score=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/Python.json"
     c_score=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/C++.json"
@@ -687,6 +716,7 @@ def analysis(request):
     django_list=[]
     html_list=[]
     js_list=[]
+    # for the line chart in javascript with the help of autoescapping
     for i in range(1,13):
         python_list.append("{"+f'y: {str(python_data[str(i)]["correct"])},label:"{str(i)}"'+"},")
         c_list.append("{ y:" + f'{c_data[str(i)]["correct"]},label:"{str(i)}"' + "},")
@@ -733,14 +763,17 @@ def analysis(request):
             js_acc = sum(accuracy_data["JavaScript"]) / (len(accuracy_data["JavaScript"]))
         except:
             js_acc=0
+    # calculating the rank of the users with the help json
     rank_path="/home/abhinav/PycharmProjects/QAT/QAT/json/rank_list.json"
     rank_data=json.load(open(rank_path))
     l=sorted(rank_data,key=lambda x:sum(rank_data[x]),reverse=True)
     index=l.index(username)+1
+    # --------ranking over--------------
     return render(request,"Analysis.html",{"username":str(request.user),"name":name,"python_gp":python_cgpa,"c_gp":c_cgpa,"django_gp":django_cgpa,"html_gp":html_cgpa,"js_gp":js_cgpa,"python_list":python_list,"c_list":c_list,
                                            "django_list":django_list,"html_list":html_list,"js_list":js_list,
                                            "py_acc":py_acc,"c_acc":c_acc,"django_acc":django_acc,"html_acc":html_acc,"js_acc":js_acc,"index":index
                                            })
+# report card with the help of the  pdfkit
 @login_required(login_url="/login")
 def report(request):
     username=str(request.user)
@@ -766,8 +799,6 @@ def report(request):
            f"<div style='text-align:center;background-color:grey'><br><h1>Marks</h1><p>Python:{python_data[quiz_link]['correct']}/20 with accuracy {python_data[quiz_link]['accuracy']}</p><p>C++:{c_data[quiz_link]['correct']}/20 with accuracy {c_data[quiz_link]['accuracy']}</p>" \
            f"<p>Django:{django_data[quiz_link]['correct']}/20 with accuracy {django_data[quiz_link]['accuracy']}</p><p>HTML:{html_data[quiz_link]['correct']}/20 with accuracy {html_data[quiz_link]['accuracy']}</p><p>JavaScript:{js_data[quiz_link]['correct']}/20 with accuracy {js_data[quiz_link]['accuracy']}</p><br></div>" \
            f"<div style='text-align:center;background-color:red'><h1>CGPA of series link {quiz_link}: {cgpa_series}</h1><h1>Overall Cgpa : {ovcgpa} </h1><h1>Rank:{index}</h1><br><br><h1>Signature</h1></div>"
-    pdfkit.from_string(text,f"/home/abhinav/PycharmProjects/QAT/QAT/static/{username}.pdf")
-    link="{% static '"+username+".pdf' %}"
-    print(link)
-    return render(request,"report.html",{"username":f"{username}.pdf","link":str(link)})
-
+    pdfkit.from_string(text,f"/home/abhinav/PycharmProjects/QAT/QAT/static/{username}/{username}{quiz_link}.pdf")
+    link=f"{username}/{username}{quiz_link}.pdf"
+    return render(request,"report.html",{"username":link})
