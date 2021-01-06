@@ -1,46 +1,102 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div id="time">-->
+
+<!--</div>-->
+<!--</body>-->
+<!--<script>-->
+<!--function startTimer(duration, display) {-->
+<!--var timer = duration, minutes, seconds;-->
+<!--setInterval(function () {-->
+<!--    minutes = parseInt(timer / 60, 10)-->
+<!--    seconds = parseInt(timer % 60, 10);-->
+
+<!--    minutes = minutes < 10 ? "0" + minutes : minutes;-->
+<!--    seconds = seconds < 10 ? "0" + seconds : seconds;-->
+
+<!--    display.textContent = minutes + " " + " " + seconds;-->
+
+<!--    if (&#45;&#45;timer < 0) {-->
+<!--        timer = duration;-->
+<!--    }-->
+<!--  console.log(parseInt(seconds))-->
+<!--  window.localStorage.setItem("seconds",seconds)-->
+<!--  window.localStorage.setItem("minutes",minutes)-->
+<!--}, 1000);-->
+<!--}-->
+
+<!--window.onload = function () {-->
+<!--  sec  = parseInt(window.localStorage.getItem("seconds"))-->
+<!--  min = parseInt(window.localStorage.getItem("minutes"))-->
+
+<!--  if(parseInt(min*sec)){-->
+<!--    var fiveMinutes = (parseInt(min*60)+sec);-->
+<!--  }else{-->
+<!--    var fiveMinutes = 60 * 5;-->
+<!--  }-->
+<!--    // var fiveMinutes = 60 * 5;-->
+<!--  display = document.querySelector('#time');-->
+<!--  startTimer(fiveMinutes, display);-->
+<!--};-->
+
+
+<!--</script>-->
+<!--</html>-->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<script src="http://code.jquery.com/jquery-git1.js"></script>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
 </head>
 <body>
-    <div id="divCounter"></div>
-    <div><span id="display" style="color:black;font-size:15px"></span></div><br>
-    <script type="text/javascript">
-var div = document.getElementById('display');
-display.innerHTML ="<b>" + sessionStorage.getItem("minutes") + "m : " + sessionStorage.getItem("seconds") + "s" + "</b>";
-    function CountDown(duration, display) {
-
-                        var timer = duration, minutes, seconds;
-                      var interVal=  setInterval(function () {
-                            minutes = parseInt(timer / 60, 10);
-                            seconds = parseInt(timer % 60, 10);
-
-                            minutes = minutes < 10 ? "0" + minutes : minutes;
-                            seconds = seconds < 10 ? "0" + seconds : seconds;
-sessionStorage.setItem("minutes",minutes);
-sessionStorage.setItem("seconds",seconds);
-<!--display.innerHTML ="<b>" + sessionStorage.getItem("minutes") + "m : " + sessionStorage.getItem("seconds") + "s" + "</b>";-->
-<!--                    display.innerHTML ="<b>" + minutes + "m : " + seconds + "s" + "</b>";-->
-                            if (timer > 0) {
-                               --timer;
-                            }else{
-                       clearInterval(interVal)
-                                SubmitFunction();
-                             }
-
-                       },1000);
-
-                }
-
-              function SubmitFunction(){
-                submitted.innerHTML="Time is up!";
-                document.getElementById('MCQuestion').submit();
-                document.getElementById('MCQuestion').hide();
-               }
-               CountDown(1200,div);
-  </script>
+<p id="name"></p>
 </body>
+<script type="text/javascript">
+<!--function checkFirstVisit() {-->
+<!--  if(document.cookie.indexOf('mycookie')==-1) {-->
+<!--    // cookie doesn't exist, create it now-->
+<!--    document.cookie = 'mycookie=1';-->
+<!--  }-->
+<!--  else {-->
+<!--    // not first visit, so alert-->
+<!--    alert('You refreshed!');-->
+<!--  }-->
+<!--}-->
 
+<!--window.onload=function myFunction() {-->
+<!--  alert("Page is loaded");-->
+<!--}-->
+<!--window.reload=function myFunction2() {-->
+<!--  alert("Page is reloaded");-->
+<!--}-->
+function func1() {
+  document.getElementById("name").innerHTML="1"
+}
+function func2() {
+  document.getElementById("name").innerHTML="2"
+}
+
+function addLoadEvent(func) {
+  var oldonload = window.onload;
+  if (typeof window.onload != 'function') {
+    window.onload = func;
+  } else {
+    window.onload = function() {
+      if (oldonload) {
+        oldonload();
+      }
+      func();
+    }
+  }
+}
+addLoadEvent(func1);
+addLoadEvent(func2);
+
+</script>
 </html>

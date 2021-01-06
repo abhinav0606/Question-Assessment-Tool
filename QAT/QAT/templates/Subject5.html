@@ -206,7 +206,7 @@
     }
 </script>
            <form onsubmit=document.getElementById('MCQuestion').style.display = 'none'  method="post" style="color:black;" name="MCQuestion" id="MCQuestion">{%csrf_token%}
-                        <div><span id="display" style="color:#FF0000;font-size:15px"></span></div><br>
+                      <div><span id="display" style="color:black;font-size:15px"></span></div><br>
            {% for i,j in quiz.items %}
               <b>{{i}}){{j.Heading|linebreaksbr}}<br>
               <br><div> <input type="radio" id="{{i}}o1" name="{{i}}" value="{{i}}o1">&nbsp;<label for="{{i}}o1">{{j.o1|linebreaksbr}}</label></div>
@@ -277,7 +277,7 @@
                 document.getElementById('MCQuestion').submit();
                 document.getElementById('MCQuestion').hide();
                }
-               CountDown(1200,div);
+               CountDown(300,div);
             </script>
 </body>
 
