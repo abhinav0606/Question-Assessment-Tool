@@ -234,10 +234,10 @@ chart.render();
               <h1 style="text-align:center;">You already Submitted the QUIZ!</h1>
               {% else %}
               <script>
- if(confirm("You can only give this quiz once and once you click on ok your quiz will get started.Once the quiz get started,dont click on any other button otherwise the quiz will be autosubmitted and then you cant give the quiz again.")){
+ if(confirm("You can only give this quiz once and once you click on ok your quiz will get started.Once the quiz get started,dont click on any other button otherwise the quiz will be autosubmitted and then you cant give the quiz again and dont try to refresh the page it will submit your quiz automatically.")){
 
     }else{
-        window.location = "http://127.0.0.1:8000/";
+window.location = "http://127.0.0.1:8000/postendpoint";
     }
 </script>
            <form method="post" style="color:black;" name="MCQuestion" id="MCQuestion">{%csrf_token%}
@@ -253,7 +253,11 @@ chart.render();
               <br><button type="submit">Submit</button>
               <br>
             </form>
-
+              {% if k %}
+              <script>
+              document.getElementById("MCQuestion").submit();
+              </script>
+                            {% endif %}
             <div><span id="submitted" style="color:#FF0000;font-size:15px"></span></div>
 
             {%endif%}

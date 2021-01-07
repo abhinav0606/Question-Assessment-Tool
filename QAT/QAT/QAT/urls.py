@@ -20,5 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("",include("QAT_Final.urls")),
     path('auth/', include('social_django.urls', namespace='social')),
-    path('oauth/', include('social_django.urls', namespace='socially'))
+    path('oauth/', include('social_django.urls', namespace='socially')),
 ]

@@ -127,7 +127,8 @@ def Dashboard(request):
                 "wrong":0,
                 "accuracy":0,
                 "submitted":False,
-                "cgpa":0
+                "cgpa":0,
+                "refresh":0
             }
         data=json.dumps(d,indent=6)
         list_of_subject=["Python.json","C++.json","Django.json","HTML.json","JavaScript.json"]
@@ -234,6 +235,15 @@ def subject1(request):
         test_given_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/test_given.json"
         rank_path="/home/abhinav/PycharmProjects/QAT/QAT/json/rank_list.json"
         # all the json data that is going to be published on the app
+        # refresh_path
+        refresh_data=json.load(open(path))
+        if refresh_data[quiz_link]["refresh"]==2:
+            pass
+        else:
+            refresh_data[quiz_link]["refresh"]=refresh_data[quiz_link]["refresh"]+1
+        refresh_writer=json.dumps(refresh_data,indent=6)
+        with open(path,"w") as f:
+            f.write(refresh_writer)
         rank_data=json.load(open(rank_path))
         rank_dict=rank_data
         # Processing the paths here
@@ -299,7 +309,13 @@ def subject1(request):
             with open(rank_path,"w") as f:
                 f.write(rank_writter)
             y="True"
-        return render(request,"Subject1.html",{"username":str(request.user),"name":name,"y":y,"quiz":quiz_data_json})
+        k=""
+        refresh_data = json.load(open(path))
+        if refresh_data[quiz_link]["refresh"]>1:
+            k="True"
+        else:
+            k=""
+        return render(request,"Subject1.html",{"username":str(request.user),"name":name,"y":y,"quiz":quiz_data_json,"k":k})
     except:
         return HttpResponseRedirect("/")
 # -------------------------------------------------------------------------
@@ -316,6 +332,15 @@ def subject2(request):
         accuracy_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/accuracy.json"
         test_given_path=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/test_given.json"
         rank_path="/home/abhinav/PycharmProjects/QAT/QAT/json/rank_list.json"
+        # refreshing debugging
+        refresh_data=json.load(open(path))
+        if refresh_data[quiz_link]["refresh"]==2:
+            pass
+        else:
+            refresh_data[quiz_link]["refresh"]=refresh_data[quiz_link]["refresh"]+1
+        refresh_writer=json.dumps(refresh_data,indent=6)
+        with open(path,"w") as f:
+            f.write(refresh_writer)
         rank_data=json.load(open(rank_path))
         rank_dict=rank_data
         # Processing the paths here
@@ -379,7 +404,13 @@ def subject2(request):
             with open(rank_path,"w") as f:
                 f.write(rank_writter)
             y="True"
-        return render(request,"Subject2.html",{"username":str(request.user),"name":name,"y":y,"quiz":quiz_data_json})
+        k=""
+        refresh_data = json.load(open(path))
+        if refresh_data[quiz_link]["refresh"]>1:
+            k="True"
+        else:
+            k=""
+        return render(request,"Subject2.html",{"username":str(request.user),"name":name,"y":y,"quiz":quiz_data_json,"k":k})
     except:
         return HttpResponseRedirect("/")
 
@@ -395,6 +426,15 @@ def subject3(request):
         accuracy_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/accuracy.json"
         test_given_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/test_given.json"
         rank_path="/home/abhinav/PycharmProjects/QAT/QAT/json/rank_list.json"
+        # refreshing debugging
+        refresh_data=json.load(open(path))
+        if refresh_data[quiz_link]["refresh"]==2:
+            pass
+        else:
+            refresh_data[quiz_link]["refresh"]=refresh_data[quiz_link]["refresh"]+1
+        refresh_writer=json.dumps(refresh_data,indent=6)
+        with open(path,"w") as f:
+            f.write(refresh_writer)
         rank_data=json.load(open(rank_path))
         rank_dict=rank_data
         # Processing the paths here
@@ -458,7 +498,13 @@ def subject3(request):
             with open(rank_path,"w") as f:
                 f.write(rank_writter)
             y = "True"
-        return render(request, "Subject3.html", {"username":str(request.user),"name": name, "y": y, "quiz": quiz_data_json})
+        k=""
+        refresh_data = json.load(open(path))
+        if refresh_data[quiz_link]["refresh"]>1:
+            k="True"
+        else:
+            k=""
+        return render(request, "Subject3.html", {"username":str(request.user),"name": name, "y": y, "quiz": quiz_data_json,"k":k})
     except:
         return HttpResponseRedirect("/")
 c=""
@@ -474,6 +520,15 @@ def subject4(request):
         accuracy_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/accuracy.json"
         test_given_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/test_given.json"
         rank_path="/home/abhinav/PycharmProjects/QAT/QAT/json/rank_list.json"
+        # refreshing debugging
+        refresh_data=json.load(open(path))
+        if refresh_data[quiz_link]["refresh"]==2:
+            pass
+        else:
+            refresh_data[quiz_link]["refresh"]=refresh_data[quiz_link]["refresh"]+1
+        refresh_writer=json.dumps(refresh_data,indent=6)
+        with open(path,"w") as f:
+            f.write(refresh_writer)
         rank_data=json.load(open(rank_path))
         rank_dict=rank_data
         # Processing the paths here
@@ -537,7 +592,13 @@ def subject4(request):
             with open(rank_path,"w") as f:
                 f.write(rank_writter)
             y = "True"
-        return render(request, "Subject4.html", {"username":str(request.user),"name": name, "y": y, "quiz": quiz_data_json})
+        k=""
+        refresh_data = json.load(open(path))
+        if refresh_data[quiz_link]["refresh"]>1:
+            k="True"
+        else:
+            k=""
+        return render(request, "Subject4.html", {"username":str(request.user),"name": name, "y": y, "quiz": quiz_data_json,"k":k})
     except:
         return HttpResponseRedirect("/")
 d=""
@@ -553,6 +614,15 @@ def subject5(request):
         accuracy_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/accuracy.json"
         test_given_path = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/test_given.json"
         rank_path="/home/abhinav/PycharmProjects/QAT/QAT/json/rank_list.json"
+        # refreshing debugging
+        refresh_data=json.load(open(path))
+        if refresh_data[quiz_link]["refresh"]==2:
+            pass
+        else:
+            refresh_data[quiz_link]["refresh"]=refresh_data[quiz_link]["refresh"]+1
+        refresh_writer=json.dumps(refresh_data,indent=6)
+        with open(path,"w") as f:
+            f.write(refresh_writer)
         rank_data=json.load(open(rank_path))
         rank_dict=rank_data
         # Processing the paths here
@@ -616,7 +686,13 @@ def subject5(request):
             with open(rank_path,"w") as f:
                 f.write(rank_writter)
             y = "True"
-        return render(request, "Subject5.html", {"username":str(request.user),"name": name, "y": y, "quiz": quiz_data_json})
+        k=""
+        refresh_data = json.load(open(path))
+        if refresh_data[quiz_link]["refresh"]>1:
+            k="True"
+        else:
+            k=""
+        return render(request, "Subject5.html", {"username":str(request.user),"name": name, "y": y, "quiz": quiz_data_json,"k":k})
     except:
         return HttpResponseRedirect("/")
 # result of individual with the help of the username
@@ -825,3 +901,51 @@ def report(request):
         return render(request,"report.html",{"username":link})
     except:
         return HttpResponseRedirect("/")
+def endpoint(request):
+    username=str(request.user)
+    s1=f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/Python.json"
+    s2 = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/C++.json"
+    s3 = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/Django.json"
+    s4 = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/HTML.json"
+    s5 = f"/home/abhinav/PycharmProjects/QAT/QAT/json/user/{username}/JavaScript.json"
+    s1_data=json.load(open(s1))
+    if s1_data[quiz_link]["refresh"]==2:
+        s1_data[quiz_link]["refresh"]=2
+    else:
+        s1_data[quiz_link]["refresh"]=0
+    s1_writer=json.dumps(s1_data,indent=6)
+    with open(s1,"w") as f:
+        f.write(s1_writer)
+    s1_data=json.load(open(s2))
+    if s1_data[quiz_link]["refresh"]==2:
+        s1_data[quiz_link]["refresh"]=2
+    else:
+        s1_data[quiz_link]["refresh"]=0
+    s1_writer=json.dumps(s1_data,indent=6)
+    with open(s2,"w") as f:
+        f.write(s1_writer)
+    s1_data=json.load(open(s3))
+    if s1_data[quiz_link]["refresh"]==2:
+        s1_data[quiz_link]["refresh"]=2
+    else:
+        s1_data[quiz_link]["refresh"]=0
+    s1_writer=json.dumps(s1_data,indent=6)
+    with open(s3,"w") as f:
+        f.write(s1_writer)
+    s1_data=json.load(open(s4))
+    if s1_data[quiz_link]["refresh"]==2:
+        s1_data[quiz_link]["refresh"]=2
+    else:
+        s1_data[quiz_link]["refresh"]=0
+    s1_writer=json.dumps(s1_data,indent=6)
+    with open(s4,"w") as f:
+        f.write(s1_writer)
+    s1_data=json.load(open(s5))
+    if s1_data[quiz_link]["refresh"]==2:
+        s1_data[quiz_link]["refresh"]=2
+    else:
+        s1_data[quiz_link]["refresh"]=0
+    s1_writer=json.dumps(s1_data,indent=6)
+    with open(s5,"w") as f:
+        f.write(s1_writer)
+    return HttpResponseRedirect("/")

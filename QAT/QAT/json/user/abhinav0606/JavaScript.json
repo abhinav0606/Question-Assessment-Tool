@@ -1,86 +1,98 @@
 {
       "1": {
-            "correct": 14,
-            "wrong": 6,
-            "accuracy": 70.0,
+            "correct": 0,
+            "wrong": 20,
+            "accuracy": 0.0,
             "submitted": true,
-            "cgpa": 7.0
+            "cgpa": 0.0,
+            "refresh": 2
       },
       "2": {
             "correct": 0,
             "wrong": 0,
             "accuracy": 0,
             "submitted": false,
-            "cgpa": 0
+            "cgpa": 0,
+            "refresh": 0
       },
       "3": {
             "correct": 0,
             "wrong": 0,
             "accuracy": 0,
             "submitted": false,
-            "cgpa": 0
+            "cgpa": 0,
+            "refresh": 0
       },
       "4": {
             "correct": 0,
             "wrong": 0,
             "accuracy": 0,
             "submitted": false,
-            "cgpa": 0
+            "cgpa": 0,
+            "refresh": 0
       },
       "5": {
             "correct": 0,
             "wrong": 0,
             "accuracy": 0,
             "submitted": false,
-            "cgpa": 0
+            "cgpa": 0,
+            "refresh": 0
       },
       "6": {
             "correct": 0,
             "wrong": 0,
             "accuracy": 0,
             "submitted": false,
-            "cgpa": 0
+            "cgpa": 0,
+            "refresh": 0
       },
       "7": {
             "correct": 0,
             "wrong": 0,
             "accuracy": 0,
             "submitted": false,
-            "cgpa": 0
+            "cgpa": 0,
+            "refresh": 0
       },
       "8": {
             "correct": 0,
             "wrong": 0,
             "accuracy": 0,
             "submitted": false,
-            "cgpa": 0
+            "cgpa": 0,
+            "refresh": 0
       },
       "9": {
             "correct": 0,
             "wrong": 0,
             "accuracy": 0,
             "submitted": false,
-            "cgpa": 0
+            "cgpa": 0,
+            "refresh": 0
       },
       "10": {
             "correct": 0,
             "wrong": 0,
             "accuracy": 0,
             "submitted": false,
-            "cgpa": 0
+            "cgpa": 0,
+            "refresh": 0
       },
       "11": {
             "correct": 0,
             "wrong": 0,
             "accuracy": 0,
             "submitted": false,
-            "cgpa": 0
+            "cgpa": 0,
+            "refresh": 0
       },
       "12": {
             "correct": 0,
             "wrong": 0,
             "accuracy": 0,
             "submitted": false,
-            "cgpa": 0
+            "cgpa": 0,
+            "refresh": 0
       }
 }
