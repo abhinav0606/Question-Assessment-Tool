@@ -1,10 +1,10 @@
 {
       "1": {
-            "correct": 16,
-            "wrong": 4,
-            "accuracy": 80.0,
+            "correct": 8,
+            "wrong": 12,
+            "accuracy": 40.0,
             "submitted": true,
-            "cgpa": 8.0,
+            "cgpa": 4.0,
             "refresh": 2
       },
       "2": {

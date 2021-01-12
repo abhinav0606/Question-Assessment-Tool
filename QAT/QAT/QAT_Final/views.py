@@ -279,6 +279,7 @@ def subject1(request):
                     count=count+1
                 else:
                     pass
+            print(count)
             subject_dummy[quiz_link]["correct"]=count
             subject_dummy[quiz_link]["wrong"]=20-count
             subject_dummy[quiz_link]["accuracy"]=(count/20)*100
