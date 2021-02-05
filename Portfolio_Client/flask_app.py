@@ -30,11 +30,20 @@ def index():
         with open("messages.json","w") as out:
             out.write(writer)
     post_add=json.load(open("post.json"))
-    listy=list(reversed(list(post_add.keys())))
-    x={}
-    for i in listy:
-        x[i]=post_add[i]
-    return render_template("index.html",x=x)
+    art={}
+    paint={}
+    wall={}
+    mehndi={}
+    for i in (reversed(list((post_add["Art_Craft"].keys())))):
+        art[i]=post_add["Art_Craft"][i]
+    for i in (reversed(list((post_add["Painting"].keys())))):
+        paint[i]=post_add["Painting"][i]
+    for i in reversed((list((post_add["Mehndi"].keys())))):
+        mehndi[i]=post_add["Mehndi"][i]
+    for i in reversed((list((post_add["Wall_Decor"].keys())))):
+        wall[i]=post_add["Wall_Decor"][i]
+    print(art)
+    return render_template("index.html",art=art,paint=paint,wall=wall,mehndi=mehndi)
 # Messages page routing and functionaliy
 @app.route("/m")
 def message():
@@ -49,13 +58,14 @@ def message():
 @app.route("/update",methods=["POST","GET"])
 def update():
     if request.method=="POST":
-        data_json=json.load(open("post.json"))
-        length=(len(list(data_json.keys())))
-        data_json[length+1]={"title":request.form.get("title"),"link":request.form.get("link")}
-        print(data_json)
-        writer=json.dumps(data_json,indent=5)
-        with open("post.json","w") as out:
-            out.write(writer)
+        title=request.form.get("title")
+        link=request.form.get("link")
+        type=request.form.get("type")
+        data_json=json.load(open('post.json'))
+        data_json[type][len(list(data_json[type].keys()))+1]={'title':title,'link':link}
+        writer=json.dumps(data_json,indent=6)
+        with open("post.json","w") as opt:
+            opt.write(writer)
         return "Hello<br><a href='/update'>Add One More Post</a><br><a href='/'>Home Page</a>"
     else:
         return render_template("update.html")

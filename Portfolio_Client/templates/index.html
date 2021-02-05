@@ -49,7 +49,7 @@
 
     <nav class="nav-menu d-none d-lg-block">
       <ul>
-        <li class="active"><a href="index.html">Home</a></li>
+        <li class="active"><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
 <!--        <li><a href="#resume">Resume</a></li>-->
         <li><a href="#services">Services</a></li>
@@ -89,18 +89,18 @@
               <div class="row">
                 <div class="col-lg-6">
                   <ul>
-                    <li><i class="icofont-rounded-right"></i> <strong>Name:</strong> Ankita Gangrade</li>
-                    <li><i class="icofont-rounded-right"></i> <strong>Website:</strong><a href="http://ankitagangrade.pythonanywhere.com"> Click Here</a></li>
-                    <li><i class="icofont-rounded-right"></i> <strong>Phone:</strong> +81 80-4333-0786</li>
-                    <li><i class="icofont-rounded-right"></i> <strong>City:</strong> City :Tokyo,JAPAN</li>
+                    <li><i class="icofont-rounded-right"></i> <strong>Name:</strong><b> Ankita Gangrade</b></li>
+                    <li><i class="icofont-rounded-right"></i> <strong>Website:</strong><a href="http://ankitagangrade.pythonanywhere.com"><b> Click Here</b></a></li>
+                    <li><i class="icofont-rounded-right"></i> <strong>Phone:</strong><b> +81 80-4333-0786</b></li>
+                    <li><i class="icofont-rounded-right"></i> <strong>City:</strong><b> Tokyo,Japan</b></li>
                   </ul>
                 </div>
                 <div class="col-lg-6">
-                  <ul>
-                    <li><i class="icofont-rounded-right"></i> <strong>Age:</strong> 31</li>
-                    <li><i class="icofont-rounded-right"></i> <strong>Degree:</strong> Bachelor of Pharmacy</li>
-                    <li><i class="icofont-rounded-right"></i> <strong>Email:</strong> ankitagangrade294@gmail.com</li>
-                  </ul>
+<!--                  <ul>-->
+<!--                    <li><i class="icofont-rounded-right"></i> <strong>Age:</strong> 31</li>-->
+<!--                    <li><i class="icofont-rounded-right"></i> <strong>Degree:</strong> Bachelor of Pharmacy</li>-->
+<!--                    <li><i class="icofont-rounded-right"></i> <strong>Email:</strong> ankitagangrade294@gmail.com</li>-->
+<!--                  </ul>-->
                 </div>
               </div>
               <div class="row mt-n4">
@@ -323,7 +323,7 @@
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div class="icon-box">
               <div class="icon"><i><span class="iconify" data-icon="openmoji:woman-artist-light-skin-tone" data-inline="false"></span></i></div>
-              <h4 class="title"><a href="https://www.facebook.com/ankitascreativecorner">Painting</a></h4>
+              <h4 class="title"><a href="#painting">Painting</a></h4>
               <p class="description">All you need to paint is a few tools, a little instruction, and a vision in your mind. " I have been doing painting since 10 years. I am a teacher to guide my students who has passion of creating something on their own.<a href="https://www.facebook.com/ankitascreativecorner">Check out my Painting Page</a></p>
             </div>
           </div>
@@ -331,7 +331,7 @@
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div class="icon-box">
               <div class="icon"><i><span class="iconify" data-icon="vscode-icons:file-type-snapcraft" data-inline="false"></span></i></div>
-              <h4 class="title"><a href="https://www.facebook.com/ankitascreativecorner">Art & Craft</a></h4>
+              <h4 class="title"><a href="#art">Art & Craft</a></h4>
               <p class="description">Creativity is something which comes from within. It's something which makes me happy ,stress free and energy to create more<br><a href="https://www.facebook.com/ankitascreativecorner">Check Out my Art and Craft Page</a></p>
             </div>
           </div>
@@ -339,7 +339,7 @@
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div class="icon-box">
               <div class="icon"><i><span class="iconify" data-icon="noto-v1:woman-artist-medium-light-skin-tone" data-inline="false"></span></i></div>
-              <h4 class="title"><a href="">Mehndi</a></h4>
+              <h4 class="title"><a href="#mehndi">Mehndi</a></h4>
               <p class="description">I am a trained mehndi designer in marwari, Arabic, Bombay style, rajasthani designs. I can take classes and can take orders also.</p>
             </div>
           </div>
@@ -439,19 +439,70 @@
 <!--          <li data-filter=".filter-card">Art & Craft</li>-->
 <!--          <li data-filter=".filter-web">Mehndi</li>-->
         </ul>
-
+        <section id="art">
+<h1 style="text-align:center">Art and Craft</h1>
         <div class="row portfolio-container">
-{% for i in x %}
+
+{% for i in art %}
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-img"><img src="{{x[i]['link']}}" class="img-fluid" alt=""></div>
+            <div class="portfolio-img"><img src="{{art[i]['link']}}" class="img-fluid" alt=""></div>
             <div class="portfolio-info">
-              <h4>{{x[i]['title']}}</h4>
+              <h4>{{art[i]['title']}}</h4>
               <p>By : Ankita Gangrade</p>
-              <a href="{{x[i]['link']}}" data-gall="portfolioGallery" class="venobox preview-link" title="{{x[i]['title']}}"><i class="bx bx-plus"></i></a>
+              <a href="{{art[i]['link']}}" data-gall="portfolioGallery" class="venobox preview-link" title="{{art[i]['title']}}"><i class="bx bx-plus"></i></a>
 <!--              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>-->
             </div>
           </div>
 {% endfor %}
+        </section>
+                <section id="painting">
+<h1 style="text-align:center">Painting</h1>
+        <div class="row portfolio-container">
+
+{% for i in paint %}
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-img"><img src="{{paint[i]['link']}}" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>{{paint[i]['title']}}</h4>
+              <p>By : Ankita Gangrade</p>
+              <a href="{{paint[i]['link']}}" data-gall="portfolioGallery" class="venobox preview-link" title="{{paint[i]['title']}}"><i class="bx bx-plus"></i></a>
+<!--              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>-->
+            </div>
+          </div>
+{% endfor %}
+        </section>
+                <section id="walldecor">
+<h1 style="text-align:center">Wall Decor</h1>
+        <div class="row portfolio-container">
+
+{% for i in wall %}
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-img"><img src="{{wall[i]['link']}}" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>{{wall[i]['title']}}</h4>
+              <p>By : Ankita Gangrade</p>
+              <a href="{{wall[i]['link']}}" data-gall="portfolioGallery" class="venobox preview-link" title="{{wall[i]['title']}}"><i class="bx bx-plus"></i></a>
+<!--              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>-->
+            </div>
+          </div>
+{% endfor %}
+        </section>
+                <section id="mehndi">
+<h1 style="text-align:center">Mehndi</h1>
+        <div class="row portfolio-container">
+
+{% for i in mehndi %}
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-img"><img src="{{mehndi[i]['link']}}" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>{{mehndi[i]['title']}}</h4>
+              <p>By : Ankita Gangrade</p>
+              <a href="{{mehndi[i]['link']}}" data-gall="portfolioGallery" class="venobox preview-link" title="{{mehndi[i]['title']}}"><i class="bx bx-plus"></i></a>
+<!--              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>-->
+            </div>
+          </div>
+{% endfor %}
+        </section>
 <!--          <div class="col-lg-4 col-md-6 portfolio-item">-->
 <!--            <div class="portfolio-img"><img src="static/assets/img/portfolio/art4.png" class="img-fluid" alt=""></div>-->
 <!--            <div class="portfolio-info">-->
